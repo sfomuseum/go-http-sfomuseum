@@ -1,0 +1,314 @@
+/* Tags */
+
+
+a {
+	font-weight:700;
+	color:#146e8e;
+	// text-decoration: none;
+}
+
+a:hover {
+	// text-decoration: underline;
+}
+
+article {
+	padding: 1rem;
+}
+
+body {
+	margin-left:10vw;
+	margin-right:10vw;
+	margin-top:2.5vh;
+	margin-bottom:2vh;
+	font-family: sans-serif;
+	font-size: 1.3rem;
+	line-height: 2.0rem;
+	font-weight:200;
+	background-color: #ffffff;
+}
+
+details-menu {
+    z-index: 5000 !important;
+    position: fixed !important;
+    background-color: #fff;
+    border: solid thin;
+    padding-top: 1.25rem;
+    padding-right: .75rem;
+    padding-bottom: 2rem;
+}
+
+details-menu ul li {
+    list-style-type: none;
+}
+
+footer {
+	padding:1rem;
+	padding-bottom: 60px;
+	border-top: 1px solid #000;
+	font-size:small;
+	text-align:left;
+	background-image: url('images/sfo_museum_rgb_gold.png');
+	background-size: 258px 108px;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	line-height:1.3rem;
+	margin-top:3rem;
+}
+
+header {
+	/* border: 1px dotted #ccc; */
+	max-height: 30vh !important;
+	padding:1rem;
+	padding-top:0px;
+	text-align:right;
+	margin-bottom:.5rem;
+}
+
+header nav {
+	font-size: small;
+}
+
+header nav ol {
+	display: inline-block;
+	padding-left: 0;
+	background-color: lightblue;
+	margin-bottom:.2rem;
+}
+
+header nav ol li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+header nav ol li:before {
+	content: " | ";
+}
+
+header nav ol li:first-child:before {
+	content: "" !important;
+}
+
+main {
+	/* border: 1px solid red;*/
+	min-height: 70vh !important;
+	padding:0px;
+}
+
+/* IDs */
+
+#details-menu {
+    text-align: left !important;
+}
+
+#details-menu nav {
+    font-size: 1.3rem !important;
+}
+
+#footer-caveat {
+    font-family:sans-serif;
+    color:#666;
+}
+
+#footer-links {
+    position: relative !important;
+    top: 1.3rem; left: 0px;
+    margin-right:250px;
+}
+
+#nearby-navi-right {
+    margin-top: -4px;
+}
+
+#search-navi-right {
+    display:inline-block;
+    float:right;
+}
+
+#summary-label-text {
+	font-weight: 700;
+	color: #146e8e !important;	
+}
+
+/* Classes */
+
+.creditline {
+	font-size: small;
+	font-style: italic;
+	width: 640px;
+	margin: 0 auto;
+	margin-bottom:2rem;
+}
+
+.hey-look {
+	font-weight: 700;
+}
+
+.navi-right {
+    display:inline-block;
+    float:right;
+}
+
+.navi-right:before {
+    content: "  ";
+    font-size:1.8rem;
+    padding-left: 1rem;
+    padding-right: .25rem;
+    font-weight:100 !important;
+    color:#ededed;
+}
+
+.navi-right a {
+    font-size:1.3rem;
+    padding-top:.3rem !important;
+    display:inline-block !important;
+}
+
+/* Media queries */
+
+@media (max-width: 1000px) {
+
+    #random-navi-right {
+    }
+
+    #random-navi-right:before {
+	opacity: 0 !important;	/* this nonsense is to account for mobile safari which doesn't to the right thing if we zero-out the padding and content */
+    }
+
+    #random-navi-right a {
+	padding-top:.15rem !important;
+    }
+
+    #search-navi-right {
+	display:none !important;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+
+    h2 {
+	font-size: smaller !important;
+    }
+
+    .header-depicts {
+	display: none;
+    }
+
+    .inline {
+	margin-top: 0px !important;
+    }
+    
+    .inline li {
+	display:block;
+    }
+
+    .inline li:before {
+	content: "";
+    }
+
+    .inline li small {
+	display: block;
+	font-size: small !important;
+    }
+
+    .inline-search li {
+	display: inline !important;
+    }
+
+    .inline-search li small {
+	display: none !important;
+    }
+
+    .inline-search li:before {
+	content: " or ";
+	font-size: small;
+    }
+
+    .results p {
+	font-size: small;
+	line-height: 1.4rem;
+    }
+    
+}
+
+@media (min-width: 375px) and (max-width: 400px) {
+
+	.image-details {
+		max-width: 350px !important;
+		line-height: 1.7rem !important;
+	}
+}
+
+@media (min-width: 350px) and (max-width: 374px) {
+
+	.image-details {
+		max-width: 300px !important;
+		line-height: 1.7rem !important;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 349px) {
+
+	article {
+		padding-top: 0px !important;
+	}
+
+	blockquote {
+		font-size:1rem !important;
+	}
+	
+	body {
+		margin-left:0px !important;
+		margin-right: 0px !important;
+		font-size:1.1rem !important;
+	}
+
+	footer {
+		padding-bottom: .5rem !important;
+		background-position: bottom left;		
+	}
+
+	header h1 {
+	    font-size:1.1rem !important;
+	    margin-bottom:.25rem;
+	}
+
+	pre {
+		max-width:250px;
+		overflow:scroll;
+	}
+
+	ul {
+		margin:0px;
+		margin-left:15px;
+		padding:0px;
+	}
+	
+	#footer-links {
+		position: normal !important;
+		width:100%;
+		height:150px;
+	}
+
+	.card h2 {
+	    font-size:1.7 rem !important;
+	}
+
+	.creditline {
+		max-width: 250px !important;
+		line-height: 1.2rem !important;
+	}
+
+	.image-details {
+		max-width: 300px !important;
+		line-height: 1.7rem !important;
+	}
+
+	.inline li {
+	    margin-bottom: 0px !important;
+	}
+
+}
+
+/* The end */
+

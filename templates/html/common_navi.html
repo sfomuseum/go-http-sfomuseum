@@ -1,0 +1,50 @@
+{{ define "common_header_navi" }}
+
+<header id="details-menu">
+		<nav>
+
+		<details style="display:inline-block;">
+		<summary id="summary-label">
+			<span id="summary-label-text">SFO Museum</span>
+		</summary>
+
+		<details-menu>
+		    <ul>
+			{{ if (IsAvailable "Account" .) }}
+			{{ if .Account }}
+			<li>You are logged in as {{ .Account.Name }}</li>
+			<li><a href="/signout/{{ if .Crumb }}?crumb={{ .Crumb }}{{ end }}">Sign out</a></li>
+			{{ else }}
+			<a href="/signin/">Sign in</a>
+			{{ end }}
+			{{ else }}
+
+			{{ end }}
+		    </ul>
+		    </details-menu>
+       	        </details>
+
+		<nav class="navi-right">
+
+
+		</nav>
+
+		<nav class="navi-right">
+
+		{{ if (IsAvailable "Account" .) }}		    
+		{{ if .Account }}
+		<a href="/signout/{{ if .Crumb }}?crumb={{ .Crumb }}{{ end }}">Sign out</a>
+		{{ else }}
+		<a href="/signin/">Sign in</a>
+		{{ end }}
+		{{ end }}
+		
+		</nav>
+
+		<br clear="all" />
+
+		</nav>
+
+</header>
+
+{{ end }}
