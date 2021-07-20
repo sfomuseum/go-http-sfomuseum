@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/sfomuseum/go-http-sfomuseum/static"
 	"github.com/aaronland/go-http-rewrite"
+	"github.com/aaronland/go-http-bootstrap"	
 	"io/fs"
 	_ "log"
 	"net/http"
@@ -101,6 +102,12 @@ func AppendAssetHandlers(mux *http.ServeMux) error {
 // Append all the files in the net/http FS instance containing the embedded SFOMuseum assets to an *http.ServeMux instance ensuring that all URLs are prepended with prefix.
 func AppendAssetHandlersWithPrefix(mux *http.ServeMux, prefix string) error {
 
+	err := bootstrap.AppendAssetHandlersWithPrefix(mux, prefix)
+
+	if err != nil {
+		return fmt.Errorf("Failed to append Bootstrap asset handlers, %v", err)
+	}
+	
 	asset_handler, err := AssetsHandlerWithPrefix(prefix)
 
 	if err != nil {
