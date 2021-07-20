@@ -60,7 +60,10 @@ func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions,
 		Stylesheets: css,
 	}
 
-	return rewrite.AppendResourcesHandler(next, ext_opts)
+	handler := rewrite.AppendResourcesHandler(next, ext_opts)
+
+	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
+	return bootstrap.AppendResourcesHandler(handler, bootstrap_opts)
 }
 
 // AssetsHandler returns a net/http FS instance containing the embedded SFOMuseum assets that are included with this package.
