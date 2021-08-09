@@ -24,7 +24,8 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 	opts := &SFOMuseumOptions{
 		CSS: []string{
 			"/css/sfomuseum.common.css",
-			"/css/sfomuseum.common.bng.css",			
+			"/css/sfomuseum.common.bng.css",
+			"/css/sfomuseum.common.header.css",						
 		},
 		JS: []string{
 		},

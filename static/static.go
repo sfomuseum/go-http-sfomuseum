@@ -4,5 +4,5 @@ import (
 	"embed"
 )
 
-//go:embed css/* images/* favicon.png
+//go:embed css/* images/* fonts/* favicon.png
 var FS embed.FS
