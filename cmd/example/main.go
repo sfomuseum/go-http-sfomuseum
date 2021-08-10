@@ -14,6 +14,7 @@ import (
 
 type ExampleVars struct {
 	IncludeNaviSearch bool
+	Title             string
 }
 
 func ExampleHandler(templates *template.Template, example_vars *ExampleVars) (http.Handler, error) {
@@ -64,6 +65,7 @@ func main() {
 	sfomuseum_opts := sfomuseum.DefaultSFOMuseumOptions()
 
 	example_vars := &ExampleVars{
+		Title:             "Example",
 		IncludeNaviSearch: true,
 	}
 

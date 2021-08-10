@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<title>SFO Museum</title>	
+	<title>SFO Museum{{ if (IsAvailable "Title" .) }}{{ if .Title }} | {{ .Title }}{{ end }}{{ end }}</title>
+	{{ if (IsAvailable "Description" .) }}{{ if .Description }}<meta name="description" content="{{ .Description }} " />{{ end }}{{ end }}
 	<meta charset="utf-8" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="/favicon.png" type="image/png" />		
-	<meta name="description" content="" />
     </head>
     <body>
 	{{template "common_header_navi" . -}}
