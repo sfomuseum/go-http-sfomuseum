@@ -75,6 +75,14 @@
     margin-right:.5rem;
 }
 
+.nav-item a {
+    color: #fff !important;
+}
+
+.nav-item a:visited {
+    color: #fff !important;
+}
+
 .nav-link {
     color: #fff !important;
 }
