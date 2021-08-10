@@ -65,6 +65,11 @@ func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions,
 	handler := rewrite.AppendResourcesHandler(next, ext_opts)
 
 	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
+
+	bootstrap_opts.JS = []string{
+		"/javascript/bootstrap.bundle.min.js",
+	}
+
 	return bootstrap.AppendResourcesHandler(handler, bootstrap_opts)
 }
 
