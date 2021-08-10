@@ -58,15 +58,15 @@
 /* the actual menu thing */
 
 .dropdown-menu {
-    border-radius:0px;
-    background-color:#8a741d;
+    border-radius:0px !important;
+    background-color:#8a741d !important;
     border: none !important;
-    padding: 1rem;
-    padding-top:2rem;
+    padding: 1rem !important;
+    padding-top:2rem !important;
 }
 
 .dropdown-menu.show {
-    left: -150px !important;
+    left: -160px !important;
     width: 250px !important;
 }
 
