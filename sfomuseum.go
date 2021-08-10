@@ -2,9 +2,9 @@ package sfomuseum
 
 import (
 	"fmt"
-	"github.com/sfomuseum/go-http-sfomuseum/static"
+	"github.com/aaronland/go-http-bootstrap"
 	"github.com/aaronland/go-http-rewrite"
-	"github.com/aaronland/go-http-bootstrap"	
+	"github.com/sfomuseum/go-http-sfomuseum/static"
 	"io/fs"
 	_ "log"
 	"net/http"
@@ -25,9 +25,10 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 		CSS: []string{
 			"/css/sfomuseum.common.css",
 			"/css/sfomuseum.common.bng.css",
-			"/css/sfomuseum.common.navi.css",						
+			"/css/sfomuseum.common.navi.css",
 		},
 		JS: []string{
+			"/javascript/sfomuseum.common.navi.init.js",
 		},
 	}
 
@@ -111,7 +112,7 @@ func AppendAssetHandlersWithPrefix(mux *http.ServeMux, prefix string) error {
 	if err != nil {
 		return fmt.Errorf("Failed to append Bootstrap asset handlers, %v", err)
 	}
-	
+
 	asset_handler, err := AssetsHandlerWithPrefix(prefix)
 
 	if err != nil {

@@ -13,7 +13,7 @@ var FS embed.FS
 func LoadTemplates(ctx context.Context, path_templates string) (*template.Template, error) {
 
 	funcs := TemplatesFuncMap()
-	
+
 	t := template.New("sfomuseum").Funcs(funcs)
 
 	return t.ParseFS(FS, "*.html")
@@ -23,7 +23,7 @@ func TemplatesFuncMap() template.FuncMap {
 
 	return template.FuncMap{
 		"IsAvailable": avail,
-	};
+	}
 }
 
 // this is to account for the absense of SFOM properties in the go-http-fault

@@ -45,7 +45,7 @@ func main() {
 	flag.Parse()
 
 	ctx := context.Background()
-	
+
 	t, err := html.LoadTemplates(ctx, "*.html")
 
 	if err != nil {
