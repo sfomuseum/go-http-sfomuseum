@@ -1,72 +1,9 @@
-/* Fonts */
-
-@font-face {
-  font-family: "cartogothicstd-book";
-  src: url("/fonts/cartogothicstd-book-webfont.woff");
-}
-
-@font-face {
-  font-family: "cartogothicstd-bold";
-  src: url("/fonts/cartogothicstd-bold-webfont.woff");
-}
-
-@font-face {
-  font-family: "cartogothicstd-italic";
-  src: url("/fonts/cartogothicstd-italic-webfont.woff");
-}
-
-body {
-    font-family: "cartogothicstd-book", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-h1, h2 {
-    color: rgb(93, 93, 93) !important;
-}
-
-input {
-    border-radius: 0px !important;
-}
-
-h2 small {
-    color: rgb(93, 93, 93) !important;
-}
-
-td a {
-    font-weight: 300;
-}
-
 /* IDs */
 
-#navbar-brand-search {
-    position:absolute;
-    right: 2rem;
-}
-
-#navbar-sfomuseum {
-	padding-left:1.5rem;
-	padding-right:1.5rem;
-	background-color: #8a741d;;
-	color: #fff;
-	text-shadow: none;
-	outline: 0;
-}
-
-#navbar-nav-collection {
+#navbar-nav-sfomuseum {
     justify-content:center;
     max-width:60%;
     margin:0 auto;
-}
-
-#navbar-search {
-    background-color: #a0915e;
-    text-align:right;
-    display:flex;
-    justify-content:right;
-    padding:.75rem;
-    padding-right:2rem;
-    display:none;
 }
 
 #navbar-search-form button {
@@ -81,24 +18,14 @@ td a {
     width:25vw;
 }
 
-#navbar-search-form-wrapper {
-    display:flex;
-    justify-content:right;
-}
-
-#navbar-search-svg-wrapper {
-    padding:.25rem;
-    padding-left:.5rem;
-    background-color:#fff;
-}
-
-#search-navi-right {
-    display: inline-block;
-    float: right;
-}
-
-#sfom-navi-dropdown-menu {
-    
+#navbar-sfomuseum {
+	padding-left:1.5rem;
+	padding-right:1.5rem;
+	background-color: #8a741d;;
+	color: #fff;
+	text-shadow: none;
+	outline: 0;
+	margin-bottom:1rem;
 }
 
 /* search input in navi header - display when mobile */
@@ -113,23 +40,7 @@ td a {
     width: 210px !important;
 }
 
-details.form-group :focus{
-    // background-color: red !important;
-}
-
-
-details.form-group summary {
-    margin-bottom: .75rem;
-}
-
-details.form-group details {
-    justify-items: left !important;
-    gap: 0px 0px !important;
-    /* max-height:40vh; */
-    overflow-y: scroll;
-    padding-bottom: 1rem !important;
-    margin-left: 2rem;
-}
+/* Classes */
 
 .nav-link:focus, .nav-link:hover {
     background: transparent !important;
@@ -184,12 +95,7 @@ details.form-group details {
 	padding-left: 2.5rem !important;
     }
 
-
-    .grid-view-search-years {
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
-    }
-
-    .navbar-container-collection {
+    .navbar-container-sfomuseum {
 	align-items: normal !important;
     }
 
@@ -205,7 +111,7 @@ details.form-group details {
 	right: 3.5rem !important;
     }
 
-    #navbar-logo-collection {
+    #navbar-logo-sfomuseum {
 	max-height:28px;
 	max-width:90px;
     }
@@ -221,7 +127,7 @@ details.form-group details {
 	padding-right: 0px !important;
     }
 
-    #navbar-container-collection:hover  #navbarSupportedContent {
+    #navbar-container-sfomuseum:hover  #navbarSupportedContent {
 	display:block !important;
     }
 
