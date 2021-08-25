@@ -20,8 +20,11 @@
 
 a {
 	font-weight:700;
-	color:#146e8e;
-	// text-decoration: none;
+	color: #8a741d;
+}
+
+a:visited {
+	color: #8a741d;
 }
 
 a:hover {
