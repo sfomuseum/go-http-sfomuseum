@@ -28,6 +28,17 @@
 	margin-bottom:1rem;
 }
 
+#navbar-sfomuseum-logo:after  {
+    content: "";
+    display:inline-block;
+    font-size:12px;
+    margin-left:-58px;
+    margin-top:23px;
+    position: absolute;
+    color:#fff;
+    font-weight:300 !important;
+}
+
 /* search input in navi header - display when mobile */
 
 #sfom-navi-search {
