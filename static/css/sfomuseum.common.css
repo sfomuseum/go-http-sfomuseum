@@ -1,3 +1,5 @@
+/* v0.9.1 */
+
 /* Fonts */
 
 @font-face {
@@ -20,11 +22,11 @@
 
 a {
 	font-weight:400;
-	color: #8a741d;
+	color: #8a741d !important;
 }
 
 a:visited {
-	color: #8a741d;
+	color: #8a741d !important;
 }
 
 a:hover {
@@ -65,6 +67,11 @@ footer a:visited {
 
 footer ul li:after {
     content: " | ";
+}
+
+footer #block-museum-menu-footer a {
+	color:#fff !important;
+	text-decoration: none !important;
 }
 
 footer #block-museum-menu-footer ul li:after {
