@@ -21,7 +21,7 @@
 #navbar-sfomuseum {
 	padding-left:1.5rem;
 	padding-right:1.5rem;
-	background-color: #8a741d;;
+	background-color: #8a741d !important;
 	color: #fff;
 	text-shadow: none;
 	outline: 0;
@@ -41,6 +41,10 @@
 }
 
 /* Classes */
+
+.nav-item a {
+    text-decoration: none !important;
+}
 
 .nav-link:focus, .nav-link:hover {
     background: transparent !important;

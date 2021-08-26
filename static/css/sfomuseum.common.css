@@ -36,19 +36,14 @@ article {
 }
 
 body {
-	margin-left:10vw;
-	margin-right:10vw;
-	margin-top:2.5vh;
-	margin-bottom:2vh;
-	background-color: #ffffff;
-	font-family: "cartogothicstd-book", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
-	font-size: 1rem;
-	line-height: 1.5;
+    margin:0px;
+    background-color: #ffffff;
+    font-family: "cartogothicstd-book", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 	
-}
-
-details-menu {
+xx-details-menu {
     z-index: 5000 !important;
     position: fixed !important;
     background-color: #fff;
@@ -58,31 +53,54 @@ details-menu {
     padding-bottom: 2rem;
 }
 
-details-menu ul li {
+xx-details-menu ul li {
     list-style-type: none;
 }
 
 footer {
-	padding:1rem;
 	padding-bottom: 60px;
-	border-top: 1px solid #000;
 	font-size:small;
-	text-align:left;
-	background-image: url('images/sfo_museum_rgb_gold.png');
-	background-size: 258px 108px;
-	background-repeat: no-repeat;
-	background-position: bottom right;
+	text-align:center;
 	line-height:1.3rem;
 	margin-top:3rem;
+}
+
+footer a {
+    color: #5d5d5d;
+}
+
+footer a:visited {
+    color: #8a741d; 
+}
+
+footer ul li:after {
+    content: " | ";
+}
+
+footer #block-museum-menu-footer ul li:after {
+    color: #fff;
+}
+
+footer ul li:last-child:after {
+    content: "";
+}
+
+footer #faq-privacy li {
+    list-style-type: none;
+    display: inline;
 }
 
 header {
 	/* border: 1px dotted #ccc; */
 	max-height: 30vh !important;
 	padding:1rem;
-	padding-top:0px;
 	text-align:right;
 	margin-bottom:.5rem;
+	color: #ffffff;
+}
+
+header a {
+    color: #ffffff !important;
 }
 
 header nav {
@@ -109,13 +127,11 @@ header nav ol li:first-child:before {
 	content: "" !important;
 }
 
-main {
-	/* border: 1px solid red;*/
-	min-height: 70vh !important;
-	padding:0px;
+h1, h2 {
+    color: rgb(93, 93, 93) !important;
 }
 
-h1, h2 {
+h2 small {
     color: rgb(93, 93, 93) !important;
 }
 
@@ -123,8 +139,11 @@ input {
     border-radius: 0px !important;
 }
 
-h2 small {
-    color: rgb(93, 93, 93) !important;
+main {
+	min-height: 70vh !important;
+	padding:0px;
+	margin-bottom:2rem;
+	margin-top:2rem;
 }
 
 td a {
@@ -133,11 +152,46 @@ td a {
 
 /* IDs */
 
-#details-menu {
+#block-museum-menu-footer {
+    background-color: #5d5d5d;
+    margin-bottom:2rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
+
+#block-museum-menu-footer a {
+    color: #fff;
+}
+
+#block-museum-menu-footer ul {
+    display:inline !important;
+}
+
+#block-museum-menu-footer ul li {
+    display:inline !important;
+}
+
+#concordances table td {
+    border: none !important;
+}
+
+#concordances table th {
+    border: none !important;
+}
+
+#concordances table tr:hover {
+    background-color:#ededed;
+}
+
+#content {
+    max-width: none !important;
+}
+
+#xx-details-menu {
     text-align: left !important;
 }
 
-#details-menu nav {
+#xx-details-menu nav {
     font-size: 1.3rem !important;
 }
 
@@ -152,7 +206,7 @@ td a {
     margin-right:250px;
 }
 
-#nearby-navi-right {
+#xx-nearby-navi-right {
     margin-top: -4px;
 }
 
@@ -161,12 +215,108 @@ td a {
     float:right;
 }
 
+
+#pagination-previous-page {
+    color:#8a741d !important;
+}
+
+#pagination-next-page {
+    color:#8a741d !important;
+}
+
 #summary-label-text {
 	font-weight: 700;
 	color: #146e8e !important;	
 }
 
 /* Classes */
+
+.breadcrumb {
+    border: none !important;
+    background-color: transparent !important;
+    margin-bottom: 0px !important;
+    font-size: small;
+}
+
+.btn {
+    background-color: #8a741d !important;
+    color: #fff !important;
+    border-radius: 0px !important;
+    padding: .4rem !important;
+}
+
+.card {
+    margin-bottom:1em;
+    border: none !important;
+}
+
+.card-admin {
+    font-size:small;
+    font-family: monospace;
+    margin-bottom: 0px !important;
+    background-color:#ccc;
+    border-radius: 0px !important;
+    margin-top:4rem;
+}
+
+.card-developers {
+    font-size:small;
+    font-family: monospace;
+    margin-bottom: 0px !important;
+}
+
+.card-body-developers {
+    padding-left:2rem;
+}
+
+.card-body-developers li {
+    list-style-type: none !important;
+}
+
+.card-header {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.card-header small {
+    display:block;
+    font-size: .85rem;
+    margin-top:.5rem;
+    line-height:1.3rem;
+}
+
+.card-img-top {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    display:block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: auto !important;
+    max-width: -moz-available !important;
+    max-width: -webkit-available !important;
+    max-width: available !important;
+}
+
+.card-footer {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.card-sfomuseum-image {
+	border: none !important;
+    padding-top:.75rem !important;
+}
+
+.caveat-map {
+    font-size:.9rem;
+    line-height:1.3rem;
+    margin-bottom:2rem;
+    font-style:italic;
+}
+
+.container {
+    max-width: none !important;
+}
 
 .creditline {
 	font-size: small;
@@ -180,12 +330,151 @@ td a {
 	font-weight: 700;
 }
 
-.navi-right {
+.image-attribution {
+    line-height:1.2rem !important;
+    font-size:.6rem !important;
+}
+
+.image-creditline {
+    font-size:small;
+    line-height:1.3rem;
+    margin-top:.5rem;
+}
+
+.image-details {
+    margin-top:1rem;
+}
+
+.image-single {
+    max-height: 320px !important;
+    max-width: 320px !important;
+}
+
+.image-toggle {
+    margin-top:2rem;
+    margin-bottom:1.5rem;
+    text-align:center;
+    display:block;
+}
+
+.image-toggle button {
+    border:solid thin;
+    font-size: small;
+    background-color:transparent;
+    display:inline;
+}
+
+.image-tiles .leaflet-control-attribution {
+    	display: none;
+}
+
+.inc_details_blurb {
+    font-size:small !important;
+    line-height: 1.3rem;
+}
+
+.inc_details_item {
+    text-decoration:underline;
+    padding-top:.3rem;
+}
+
+.image-map .feature-map {
+    max-height:500px !important;
+}
+
+.inline {
+	background-color:#ededed;
+	padding: 2rem !important;
+	padding-top:1rem !important;
+	padding-bottom:1.5rem !important;
+}
+
+.inline li {
+	display: inline;
+	padding: 0px !important;
+	margin: 0px !important;
+	color:#666;
+}
+
+.inline li:before {
+	// content: ", ";
+	content: " and ";
+	color:#666;
+	// border: 1px solid red;
+}
+
+.inline li:first-child:before {
+	content: "" !important;
+}
+
+.inline li:last-child:before {
+	// content: " and ";
+}
+
+.leaflet-div-icon {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.list-view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-view-still {
+    height:355px;
+}
+
+.list-view-still img {
+    max-height:270px !important;
+}
+
+.list-view-image-placeholder {
+    min-height:270px;
+    min-width:270px;
+    max-height:270px;
+    max-width:270px;
+    /* border:solid thin; */
+    margin: 0 auto;
+    margin-bottom:1rem;    
+    background-color:#ccc;
+    /* https://thenounproject.com/search/?q=unavailable&i=3444048 */
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDY0IDgwIiB4PSIwcHgiIHk9IjBweCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik02MS44MSw0NS43OUExMi43MiwxMi43MiwwLDAsMCw0OS4xLDMzLjg0YTEzLDEzLDAsMCwwLTIuMjMuMTksMTIuNjQsMTIuNjQsMCwwLDAtNi43NywzLjUzLDEyLjg0LDEyLjg0LDAsMCwwLTEuNzksMi4yNSwxMi42LDEyLjYsMCwwLDAtMS41NSwzLjY1LDEyLjgyLDEyLjgyLDAsMCwwLS4zOCwzLjFBMTIuNzMsMTIuNzMsMCwwLDAsNDkuMSw1OS4yOWExMi44MSwxMi44MSwwLDAsMCwyLjExLS4xNywxMi42LDEyLjYsMCwwLDAsNi44OS0zLjU1LDEyLjg1LDEyLjg1LDAsMCwwLDEuNzQtMi4xN3EuMjgtLjQ0LjUzLS45MWExMi42NiwxMi42NiwwLDAsMCwxLjQzLTUuMTVxMC0uMzksMC0uNzhUNjEuODEsNDUuNzlaTTQ4LjMxLDM2LjkzYy4yNiwwLC41MywwLC43OSwwYTkuNjgsOS42OCwwLDAsMSw5LjY3LDkuNjcsOS42Miw5LjYyLDAsMCwxLTEuODQsNS42N2wtOC43Ny04Ljc3LTQuNzMtNC43M0E5LjU5LDkuNTksMCwwLDEsNDguMzEsMzYuOTNabTEuMjYsMTkuM0g0OS4xQTkuNjYsOS42NiwwLDAsMSw0MS4yNyw0MC45bDIuNTcsMi41Nyw5LjI3LDkuMjcsMS42NiwxLjY2QTkuNTYsOS41NiwwLDAsMSw0OS41Nyw1Ni4yMloiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTU5LjI5LDQuNzFINC42OEEyLjUxLDIuNTEsMCwwLDAsMi4xNyw3LjIydjQzYTIuNTEsMi41MSwwLDAsMCwyLjUxLDIuNTFoMzFhMTQuODQsMTQuODQsMCwwLDEtMS05LjI3SDdWMzkuNjJjNC4zNy0xLjIsMTEuMjUtMy43NywxOS4yMS0yLjc3YS44OS44OSwwLDAsMCwxLS40bDguMTEtMTRhMSwxLDAsMCwxLDEuOCwwbDMuMzgsNS44NmExLDEsMCwwLDAsMS44LDBMNDcuNjUsMTlhMSwxLDAsMCwxLDEuOCwwTDU3LDMyLjA5djJhMTQuOTMsMTQuOTMsMCwwLDEsNC44LDVWNy4yMkEyLjUxLDIuNTEsMCwwLDAsNTkuMjksNC43MVpNMTguMjIsMjRhNS40Nyw1LjQ3LDAsMSwxLDUuNDctNS40N0E1LjQ3LDUuNDcsMCwwLDEsMTguMjIsMjRaIi8+PC9zdmc+");
+    background-size: 32px auto;
+    background-repeat: no-repeat;
+    background-position: 228px 10px; 
+}
+
+.list-view-item {
+    min-width:320px;
+    max-width:320px; 
+    min-height:520px;
+    max-height:520px;
+    margin:.5rem;
+    margin-bottom:2rem;
+    border-bottom:none !important;
+    /* border:1px solid red !important; */
+}
+
+.list-view-item-caption {
+	font-size:small;
+	line-height:1.3rem;
+}
+
+
+.xx-navbar {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.xx-navi-right {
     display:inline-block;
     float:right;
 }
 
-.navi-right:before {
+.xx-navi-right:before {
     content: "  ";
     font-size:1.8rem;
     padding-left: 1rem;
@@ -194,158 +483,18 @@ td a {
     color:#ededed;
 }
 
-.navi-right a {
+.xx-navi-right a {
     font-size:1.3rem;
     padding-top:.3rem !important;
     display:inline-block !important;
 }
 
-/* Media queries */
-
-@media (max-width: 1000px) {
-
-    #random-navi-right {
-    }
-
-    #random-navi-right:before {
-	opacity: 0 !important;	/* this nonsense is to account for mobile safari which doesn't to the right thing if we zero-out the padding and content */
-    }
-
-    #random-navi-right a {
-	padding-top:.15rem !important;
-    }
-
-    #search-navi-right {
-	display:none !important;
-    }
-
+.pagination {
+    margin-top:4rem;
 }
 
-@media (min-width: 320px) and (max-width: 500px) {
-
-    h2 {
-	font-size: smaller !important;
-    }
-
-    .header-depicts {
-	display: none;
-    }
-
-    .inline {
-	margin-top: 0px !important;
-    }
-    
-    .inline li {
-	display:block;
-    }
-
-    .inline li:before {
-	content: "";
-    }
-
-    .inline li small {
-	display: block;
-	font-size: small !important;
-    }
-
-    .inline-search li {
-	display: inline !important;
-    }
-
-    .inline-search li small {
-	display: none !important;
-    }
-
-    .inline-search li:before {
-	content: " or ";
-	font-size: small;
-    }
-
-    .results p {
-	font-size: small;
-	line-height: 1.4rem;
-    }
-    
+.page-item a {
+    color: #8a741d;
 }
 
-@media (min-width: 375px) and (max-width: 400px) {
-
-	.image-details {
-		max-width: 350px !important;
-		line-height: 1.7rem !important;
-	}
-}
-
-@media (min-width: 350px) and (max-width: 374px) {
-
-	.image-details {
-		max-width: 300px !important;
-		line-height: 1.7rem !important;
-	}
-}
-
-@media (min-width: 320px) and (max-width: 349px) {
-
-	article {
-		padding-top: 0px !important;
-	}
-
-	blockquote {
-		font-size:1rem !important;
-	}
-	
-	body {
-		margin-left:0px !important;
-		margin-right: 0px !important;
-		font-size:1.1rem !important;
-	}
-
-	footer {
-		padding-bottom: .5rem !important;
-		background-position: bottom left;		
-	}
-
-	header h1 {
-	    font-size:1.1rem !important;
-	    margin-bottom:.25rem;
-	}
-
-	pre {
-		max-width:250px;
-		overflow:scroll;
-	}
-
-	ul {
-		margin:0px;
-		margin-left:15px;
-		padding:0px;
-	}
-	
-	#footer-links {
-		position: normal !important;
-		width:100%;
-		height:150px;
-	}
-
-	.card h2 {
-	    font-size:1.7 rem !important;
-	}
-
-	.creditline {
-		max-width: 250px !important;
-		line-height: 1.2rem !important;
-	}
-
-	.image-details {
-		max-width: 300px !important;
-		line-height: 1.7rem !important;
-	}
-
-	.inline li {
-	    margin-bottom: 0px !important;
-	}
-
-}
-
-/* The end */
-
+/* media queries are in sfomuseum.common.media.css */
