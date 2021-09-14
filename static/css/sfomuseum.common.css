@@ -1,3 +1,5 @@
+/* v0.9.1 */
+
 /* Fonts */
 
 @font-face {
@@ -19,12 +21,12 @@
 
 
 a {
-	font-weight:700;
-	color: #8a741d;
+	font-weight:400;
+	color: #8a741d !important;
 }
 
 a:visited {
-	color: #8a741d;
+	color: #8a741d !important;
 }
 
 a:hover {
@@ -41,32 +43,22 @@ body {
     font-family: "cartogothicstd-book", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
     font-size: 1rem;
     line-height: 1.5;
+    color: #555555 !important;
 }
 	
-xx-details-menu {
-    z-index: 5000 !important;
-    position: fixed !important;
-    background-color: #fff;
-    border: solid thin;
-    padding-top: 1.25rem;
-    padding-right: .75rem;
-    padding-bottom: 2rem;
-}
-
-xx-details-menu ul li {
-    list-style-type: none;
-}
-
 footer {
-	padding-bottom: 60px;
-	font-size:small;
-	text-align:center;
-	line-height:1.3rem;
-	margin-top:3rem;
-}
-
-footer a {
-    color: #5d5d5d;
+    background-color: #e9e9e9;
+    font-size:small;
+    padding: 0px !important;
+    margin: 0px !important;
+    color: #606060;
+    font-weight: 700;
+    border: none !important;
+    min-height: 10rem;
+    text-align: center;
+    background-image: none !important;
+    vertical-align: bottom;
+    position: relative;
 }
 
 footer a:visited {
@@ -75,6 +67,11 @@ footer a:visited {
 
 footer ul li:after {
     content: " | ";
+}
+
+footer #block-museum-menu-footer a {
+	color:#fff !important;
+	text-decoration: none !important;
 }
 
 footer #block-museum-menu-footer ul li:after {
@@ -91,7 +88,6 @@ footer #faq-privacy li {
 }
 
 header {
-	/* border: 1px dotted #ccc; */
 	max-height: 30vh !important;
 	padding:1rem;
 	text-align:right;
@@ -137,6 +133,7 @@ h2 small {
 
 input {
     border-radius: 0px !important;
+    border: solid 1px #8a741d !important;
 }
 
 main {
@@ -346,8 +343,8 @@ td a {
 }
 
 .image-single {
-    max-height: 320px !important;
-    max-width: 320px !important;
+    max-height: 270px !important;
+    max-width: 270px !important;
 }
 
 .image-toggle {
@@ -461,32 +458,7 @@ td a {
 .list-view-item-caption {
 	font-size:small;
 	line-height:1.3rem;
-}
-
-
-.xx-navbar {
-    padding-left: 0px;
-    margin-left: 0px;
-}
-
-.xx-navi-right {
-    display:inline-block;
-    float:right;
-}
-
-.xx-navi-right:before {
-    content: "  ";
-    font-size:1.8rem;
-    padding-left: 1rem;
-    padding-right: .25rem;
-    font-weight:100 !important;
-    color:#ededed;
-}
-
-.xx-navi-right a {
-    font-size:1.3rem;
-    padding-top:.3rem !important;
-    display:inline-block !important;
+	max-width: 300px;
 }
 
 .pagination {
@@ -495,6 +467,13 @@ td a {
 
 .page-item a {
     color: #8a741d;
+}
+
+
+.active a {
+    background-color: #8a741d !important;
+    border: 1px solid #8a741d !important;
+    color:#fff !important;
 }
 
 /* media queries are in sfomuseum.common.media.css */
