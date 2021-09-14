@@ -1,0 +1,54 @@
+@page {
+	size: auto;
+	padding 0 !important;
+	
+	margin: 1.0in !important;	
+	margin-bottom: 1.5in !important;
+}
+
+@page:left {
+	// border: solid 1px red !important;
+        margin-right: 1.0in !important;
+} 
+
+@page:right {
+	// border: solid 1px blue !important;
+	margin-left: 1.0in !important;
+} 
+
+@media print {
+
+	header {
+		display:none !important;
+	}
+
+	footer {
+		display: none !important;
+	}
+
+	img {
+		page-break-inside: avoid !important;
+		max-width: 500px !important;
+	}
+
+	.creditline {
+		page-break-inside: avoid !important;
+	}
+	
+	pre {
+		page-break-inside: avoid !important;
+		overflow-wrap: break-all !important;
+	}
+
+	#map {
+		height:8in !important;
+		border:5px solid #000;
+
+		page-break-inside: avoid !important;
+	}
+	
+	.leaflet-control-zoom {
+		display: none !important;
+	}
+	
+}
