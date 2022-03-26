@@ -1,0 +1,182 @@
+{
+   "ajaxTrustedUrl" : {
+      "/search" : true
+   },
+   "blazy" : {
+      "loadInvisible" : false,
+      "loader" : true,
+      "offset" : 100,
+      "saveViewportOffsetDelay" : 50,
+      "unblazy" : null
+   },
+   "blazyIo" : {
+      "disconnect" : false,
+      "rootMargin" : "0px",
+      "threshold" : [
+         0,
+         0.25,
+         0.5,
+         0.75,
+         1
+      ]
+   },
+   "chosen" : {
+      "minimum_multiple" : 20,
+      "minimum_single" : 0,
+      "minimum_width" : 0,
+      "options" : {
+         "allow_single_deselect" : false,
+         "disable_search" : false,
+         "disable_search_threshold" : 0,
+         "inherit_select_classes" : true,
+         "max_shown_results" : null,
+         "no_results_text" : "No results match",
+         "placeholder_text_multiple" : "Choose some options",
+         "placeholder_text_single" : "Choose an option",
+         "search_contains" : false
+      },
+      "selector" : "select",
+      "use_relative_width" : false
+   },
+   "eu_cookie_compliance" : {
+      "allowed_cookies" : "",
+      "automatic_cookies_removal" : true,
+      "better_support_for_screen_readers" : false,
+      "containing_element" : "body",
+      "cookie_categories" : [],
+      "cookie_categories_details" : [],
+      "cookie_lifetime" : 100,
+      "cookie_name" : "",
+      "cookie_policy_version" : "1.0.0",
+      "cookie_session" : 0,
+      "cookie_value_agreed" : "2",
+      "cookie_value_agreed_show_thank_you" : "1",
+      "cookie_value_disagreed" : "0",
+      "disagree_do_not_show_popup" : false,
+      "domain" : "",
+      "domain_all_sites" : null,
+      "enable_save_preferences_button" : true,
+      "fixed_top_position" : true,
+      "method" : "default",
+      "mobile_breakpoint" : 768,
+      "mobile_popup_html_info" : "<div role=\"alertdialog\" aria-labelledby=\"popup-text\"  class=\"eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--default\">\n  <div class=\"popup-content info eu-cookie-compliance-content\">\n    <div id=\"popup-text\" class=\"eu-cookie-compliance-message\">\n      \n          </div>\n\n    \n    <div id=\"popup-buttons\" class=\"eu-cookie-compliance-buttons\">\n      <button type=\"button\" class=\"agree-button eu-cookie-compliance-default-button\">OK, I agree</button>\n          </div>\n  </div>\n</div>",
+      "open_by_default" : true,
+      "popup_agreed_enabled" : false,
+      "popup_clicking_confirmation" : false,
+      "popup_delay" : 1000,
+      "popup_enabled" : true,
+      "popup_eu_only_js" : false,
+      "popup_height" : "auto",
+      "popup_hide_agreed" : false,
+      "popup_html_agreed" : false,
+      "popup_html_info" : "<div role=\"alertdialog\" aria-labelledby=\"popup-text\"  class=\"eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--default\">\n  <div class=\"popup-content info eu-cookie-compliance-content\">\n    <div id=\"popup-text\" class=\"eu-cookie-compliance-message\">\n      <h2>We use cookies on this site to enhance your user experience</h2>\n<p>By clicking any link on this page you are giving your consent for us to set cookies.</p>\n\n          </div>\n\n    \n    <div id=\"popup-buttons\" class=\"eu-cookie-compliance-buttons\">\n      <button type=\"button\" class=\"agree-button eu-cookie-compliance-default-button\">OK, I agree</button>\n          </div>\n  </div>\n</div>",
+      "popup_language" : "en",
+      "popup_link" : "/privacy",
+      "popup_link_new_window" : true,
+      "popup_position" : false,
+      "popup_scrolling_confirmation" : false,
+      "popup_use_bare_css" : false,
+      "popup_width" : "100%",
+      "reload_options" : 0,
+      "reload_page" : false,
+      "reload_routes_list" : "",
+      "set_cookie_session_zero_on_disagree" : 0,
+      "settings_tab_enabled" : false,
+      "store_consent" : false,
+      "use_mobile_message" : false,
+      "withdraw_button_on_info_popup" : false,
+      "withdraw_enabled" : false,
+      "withdraw_markup" : "<button type=\"button\" class=\"eu-cookie-withdraw-tab\">Privacy settings</button>\n<div role=\"alertdialog\" aria-labelledby=\"popup-text\" class=\"eu-cookie-withdraw-banner\">\n  <div class=\"popup-content info eu-cookie-compliance-content\">\n    <div id=\"popup-text\" class=\"eu-cookie-compliance-message\">\n      <h2>We use cookies on this site to enhance your user experience</h2>\n<p>You have given your consent for us to set cookies.</p>\n\n    </div>\n    <div id=\"popup-buttons\" class=\"eu-cookie-compliance-buttons\">\n      <button type=\"button\" class=\"eu-cookie-withdraw-button\">Withdraw consent</button>\n    </div>\n  </div>\n</div>"
+   },
+   "google_analytics" : {
+      "trackDownload" : true,
+      "trackDownloadExtensions" : "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip",
+      "trackMailto" : true,
+      "trackOutbound" : true
+   },
+   "path" : {
+      "baseUrl" : "/",
+      "currentLanguage" : "en",
+      "currentPath" : "node/24085",
+      "currentPathIsAdmin" : false,
+      "isFront" : true,
+      "pathPrefix" : "",
+      "scriptPath" : null
+   },
+   "pluralDelimiter" : "\u0003",
+   "sfo_jibestream" : {
+      "jibe_base_url" : "https://api.jibestream.com",
+      "jibe_client_id" : "a6040c52-4f05-49b6-92b0-2ba0dfe736bb",
+      "jibe_secret" : "uJJ1xiTzhr73q7trjWiDKgKNZ0jafPF1zH7GmxzaN/o=",
+      "jibe_venue" : "6"
+   },
+   "slick" : {
+      "accessibility" : true,
+      "adaptiveHeight" : false,
+      "arrows" : true,
+      "autoplay" : false,
+      "autoplaySpeed" : 3000,
+      "centerMode" : false,
+      "centerPadding" : "50px",
+      "cssEase" : "ease",
+      "cssEaseBezier" : "",
+      "cssEaseOverride" : "",
+      "dots" : false,
+      "dotsClass" : "slick-dots",
+      "downArrow" : false,
+      "downArrowOffset" : 0,
+      "downArrowTarget" : "",
+      "draggable" : true,
+      "easing" : "linear",
+      "edgeFriction" : 0.35,
+      "fade" : false,
+      "focusOnSelect" : false,
+      "infinite" : true,
+      "initialSlide" : 0,
+      "lazyLoad" : "ondemand",
+      "mouseWheel" : false,
+      "pauseOnDotsHover" : false,
+      "pauseOnFocus" : true,
+      "pauseOnHover" : true,
+      "randomize" : false,
+      "rows" : 1,
+      "rtl" : false,
+      "slide" : "",
+      "slidesPerRow" : 1,
+      "slidesToScroll" : 1,
+      "slidesToShow" : 1,
+      "speed" : 500,
+      "swipe" : true,
+      "swipeToSlide" : false,
+      "touchMove" : true,
+      "touchThreshold" : 5,
+      "useCSS" : true,
+      "useTransform" : true,
+      "variableWidth" : false,
+      "vertical" : false,
+      "verticalSwiping" : false,
+      "waitForAnimate" : true
+   },
+   "superfish" : {
+      "superfish-main" : {
+         "id" : "superfish-main",
+         "plugins" : {
+            "supposition" : true
+         },
+         "sf" : {
+            "animation" : {
+               "height" : "show",
+               "opacity" : "show"
+            },
+            "autoArrows" : false,
+            "dropShadows" : false,
+            "speed" : "fast"
+         }
+      }
+   },
+   "suppressDeprecationErrors" : true,
+   "user" : {
+      "permissionsHash" : "94852f795da4ebd63d3fac961549cfa1d2491bccfd09412dd01d2ea859e4aa35",
+      "uid" : 0
+   }
+}
