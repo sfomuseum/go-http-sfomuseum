@@ -25,7 +25,7 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 		CSS: []string{
 			"/css/css_W0cKvDTOIvYQGze2fQgYetVT_LTYEp1XuXvz4AdVYjE.css",
 			"/css/css_tYMnZJENio3fbqTvIRK7wb8dpGIx2TaK1n--M2StjfQ.css",
-			"/css/sfomuseum.org.social.css",			
+			"/css/sfomuseum.org.social.css",
 			"/css/sfomuseum.org.bootstrap.css",			
 		},
 		JS: []string{
@@ -43,6 +43,10 @@ func AppendResourcesHandler(next http.Handler, opts *SFOMuseumOptions) http.Hand
 // AppendResourcesHandlerWithPrefix will rewrite any HTML produced by previous handler to include the necessary markup to load SFOMuseum JavaScript files and related assets ensuring that all URIs are prepended with a prefix.
 func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions, prefix string) http.Handler {
 
+	// The order of events here is important. We want to load the Bootstrap
+	// first so that /css/sfomuseum.org.bootstrap.css follows it and applies
+	// any necessary fixes for layout issues.
+	
 	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
 
 	bootstrap_opts.JS = []string{

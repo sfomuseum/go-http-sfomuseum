@@ -5,3 +5,20 @@
 #superfish-main li ul {
 	margin-top:-1px !important;
 }
+
+#edit-submit-search-solr {
+	margin-top: 3px !important;
+	height: 44px;
+}
+
+.pt-1 {
+	padding-top: .25rem !important;
+}
+
+.pt-4 {
+	padding-top: 1rem !important;
+}
+
+.pb-3 {
+	padding-bottom: .75rem !important;
+}
