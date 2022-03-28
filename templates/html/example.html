@@ -1,9 +1,11 @@
 {{ define "example" -}}
 {{template "common_header" . -}}
+{{template "example_custom_header" . -}}
+{{template "common_body_start" . -}}
 
-<div class="container">
 <p>This page left intentionally blank.</p>
 </div>
 
+{{template "common_body_end" . -}}
 {{template "common_footer" -}}
 {{ end -}}
