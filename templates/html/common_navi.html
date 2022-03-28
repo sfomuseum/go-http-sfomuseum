@@ -1,0 +1,291 @@
+{{ define "common_navi" }}
+
+<header class="header bg-color-barley-corn" id="navbar" role="banner">
+	      <div class="views-exposed-form relative py-3 hidden" data-drupal-selector="views-exposed-form-search-solr-header-search-form" id="block-search-solr-header-search-form">
+		  
+		  <div class="container clearfix">
+		      <div class="relative overflow-hidden w-full lg:w-1/2 float-right">
+			  <form action="/search" method="get" id="views-exposed-form-search-solr-header-search-form" accept-charset="UTF-8">
+			      
+			      <div class="js-form-item form-item js-form-type-textfield form-item-keys js-form-item-keys form-no-label">
+				  <div class="relative">
+				      <input data-twig-suggestion="keys views_exposed_form views-exposed-form-search-solr-header-search-form" data-drupal-selector="edit-keys" type="text" id="edit-keys" name="keys" size="30" maxlength="128" class="form-text w-full to-lg:py-2 pt-4 pr-32 pb-3 pl-12" placeholder="Search...">
+				      <div class="absolute to-lg:mt-1 w-12 pin-t mt-3 pt-px pin-l text-align-center text-color-emperor">
+					  <svg class="svg-inline--fa fa-search fa-w-16 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-lg fa-search"></i> -->
+				      </div>
+				  </div>
+				  
+			      </div>
+			      
+			      <div class="js-form-item form-item js-form-type-select form-item-type js-form-item-type">
+				  <div class="">
+				      <label for="edit-type">Content type</label>
+				  </div>
+				  
+				  <div class="border border-color-kumera select--single"><select data-twig-suggestion="type views_exposed_form views-exposed-form-search-solr-header-search-form" data-drupal-selector="edit-type" id="edit-type" name="type" class="form-select form-control w-full border-0 bg-transparent text-color-kumera" style="display:visible; position:absolute; width:0px; height: 0px; clip:rect(0,0,0,0)" tabindex="-1"><option class="" value="All" selected="selected">- Any -</option><option class="" value="admin">Admin</option><option class="" value="blog">Blog</option><option class="" value="collection">Collection</option><option class="" value="exhibition">Exhibition</option><option class="" value="faq">FAQ</option><option class="" value="homepage">Homepage</option><option class="" value="page">Basic page</option><option class="" value="press_release">Press Release</option><option class="" value="public_art">Public Art</option><option class="" value="video_art">Video Art</option></select><div class="chosen-container chosen-container-single form-select form-control w-full border-0 bg-transparent text-color-kumera" title="" id="edit_type_chosen" style="width: 0px;"><a class="chosen-single">
+				      <span>- Any -</span>
+				      <div><b></b></div>
+				  </a>
+				  <div class="chosen-drop">
+				      <div class="chosen-search">
+					  <input class="chosen-search-input" type="text" autocomplete="off">
+				      </div>
+				      <ul class="chosen-results"></ul>
+				  </div>
+				  </div>
+				  </div>
+			      </div>
+			      
+			      <div data-twig-suggestion="actions views_exposed_form views-exposed-form-search-solr-header-search-form" data-drupal-selector="edit-actions" class="form-actions js-form-item form-item" id="edit-actions">
+				  
+				  <input data-twig-suggestion="submit views_exposed_form views-exposed-form-search-solr-header-search-form" data-drupal-selector="edit-submit-search-solr" type="submit" id="edit-submit-search-solr" value="Go" class="button js-form-submit form-submit absolute pin-t pin-r w-24 to-lg:h-10 h-12 pt-1 bg-color-kumera text-color-white text-xl cursor-pointer">
+				  
+			      </div>
+			  </form>			  
+		      </div>
+		  </div>
+	      </div>
+	      
+	      <div class="bg-color-kumera">
+		  <div class="container sm:max-w-full lg:max-w-lg xl:max-w-xl flex justify-between items-center">
+		      <div id="block-museum-sitebranding" class="flex-grow lg:flex-initial">
+			  <a class="block w-24 lg:w-40 pt-3 pb-2" href="https://www.sfomuseum.org/" title="Home" rel="home">
+			      <img src="/images/logo.svg" alt="Home">
+			  </a>
+		      </div>
+		      <div id="block-museum-mainnavigation">
+			  
+			  <ul id="superfish-main" class="menu sf-menu sf-main sf-horizontal sf-style-none hidden lg:flex list-reset z-50 leading-none sf-js-enabled">
+			      
+			      <li id="main-menu-link-content43d9c0fd-c682-4974-b71e-d8a87019abbe--2" class="relative z-40 group block"><a class="sf-depth-1 menuparent text-color-white no-underline text-lg py-6 px-4 block" href="https://www.sfomuseum.org/exhibitions">Exhibitions</a><ul class="bg-color-kumera border-t-4 border-color-kumera hidden absolute pin-t16 pin-l w-56 z-40 list-reset shadow">
+				  <li id="main-menu-link-content8f6f0a85-cbd6-4501-b25f-903cd023b79a--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/exhibitions">Current Exhibitions</a></li>
+				  <li id="main-menu-link-content720f8644-9804-4f8a-baa4-7ca0ebd9b65e--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/exhibitions/past">Past Exhibitions</a></li>
+				  <li id="main-menu-link-content2e62a3ed-bfc6-4cd8-a5dc-46ab4bf1fc19--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/exhibitions/upcoming">Upcoming Exhibitions</a></li>
+				  <li id="main-menu-link-contentc7112b6b-4151-46bf-b8e8-d9224e007192--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 sf-external text-color-white no-underline text-lg py-3 px-6 block" target="_blank" href="https://www.sfomuseum.org/sites/default/files/inline-files/sfo_museum_gallery_map_220316.pdf">Gallery Map</a></li></ul></li>
+			      <li id="main-menu-link-contente753f8fb-1a27-4da5-8a69-a6e9b61a28de--2" class="relative z-40 group block"><a class="sf-depth-1 menuparent text-color-white no-underline text-lg py-6 px-4 block" href="https://www.sfomuseum.org/aviation-museum-library">Aviation Museum &amp; Library</a>
+				  <ul class="bg-color-kumera border-t-4 border-color-kumera hidden absolute pin-t16 pin-l w-56 z-40 list-reset shadow">
+				      <li id="main-menu-link-content74079290-22f0-4324-9808-c43feffdc1ac--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 sf-external text-color-white no-underline text-lg py-3 px-6 block" href="https://collection.sfomuseum.org/">Collection</a></li>
+				      <li id="main-menu-link-content9cc5c98d-caec-454b-95c1-8a78b031aa9f--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/aviation-museum-library/research-appointments">Research Appointments</a></li>
+				      <li id="main-menu-link-content139e9c63-2b36-4ac4-b8c6-ffd7f2e739bc--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/aviation-museum-library/donating">Donating</a></li>
+				      <li id="main-menu-link-content043bedf9-09c7-4fa3-846e-551952fb478a--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/aviation-museum-library/volunteering">Volunteering</a></li>
+				      <li id="main-menu-link-contentb56b2a77-a5e1-475b-bb02-a36b8325d93f--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/aviation-museum-library/support-affiliate">Support Affiliate</a></li>
+				      <li id="main-menu-link-content759f4b93-8edf-4622-9b6b-1bb5b798951c--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/aviation-museum-library/events">Events</a></li>
+				      <li id="main-menu-link-content7860bd7b-b349-4a1f-a5aa-d5e2f187e12d--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/aviation-museum-library/hours-directions">Hours &amp; Directions</a></li>
+				  </ul>
+			      </li>
+			      <li id="main-menu-link-content02e3890a-abb0-42d1-8eb8-4f591c04af40--2" class="relative z-40 group block"><a class="sf-depth-1 menuparent text-color-white no-underline text-lg py-6 px-4 block" href="https://www.sfomuseum.org/public-art">Public Art</a><ul class="bg-color-kumera border-t-4 border-color-kumera hidden absolute pin-t16 pin-l w-56 z-40 list-reset shadow">
+				  <li id="main-menu-link-content201e3352-82a9-44b8-a296-7a2d00de5067--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/public-art">Overview</a></li>
+				  <li id="main-menu-link-content375a9506-53cb-4aa1-b26a-73887cd75399--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/public-art/public-collection">Public Art Collection</a></li>
+				  <li id="main-menu-link-content8a5fe9d8-c999-4317-a5c7-a28cf49466ff--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 sf-external text-color-white no-underline text-lg py-3 px-6 block" target="_blank" href="https://www.sfomuseum.org/sites/default/files/inline-files/sfo_public_art_map_220104.pdf">Public Art Map</a></li>
+			      </ul>
+			      </li>
+			      <li id="main-menu-link-content078c5bcd-42f0-416c-85d1-f810f3ef387d--2" class="relative z-40 group block"><a class="sf-depth-1 menuparent text-color-white no-underline text-lg py-6 px-4 block" href="https://www.sfomuseum.org/programs">Programs</a>
+				  <ul class="bg-color-kumera border-t-4 border-color-kumera hidden absolute pin-t16 pin-l w-56 z-40 list-reset shadow">
+				      <li id="main-menu-link-content877ea3d5-5a78-4a19-8c3a-47602b33f930--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/programs/video-arts">Video Arts</a></li>
+				      <li id="main-menu-link-content3601023a-fd85-46ff-8e6f-1ed1d1f919e7--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/programs/photography">Photography</a></li>
+				      <li id="main-menu-link-contentbfff6fb6-869c-41d6-8116-2197b0993236--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/programs/student-art">Student Art</a></li>
+				      <li id="main-menu-link-content3db15f87-1645-4c19-ac4b-bb24de32f955--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/programs/education-program">Education Program</a></li>
+				      <li id="main-menu-link-content40d70d36-3ec0-43b0-81dd-d2843ba21654--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/programs/kids-spot">Kids' Spot</a></li>
+				  </ul>
+			      </li>
+			      <li id="main-menu-link-content8b6567c8-4c6b-422c-919f-8c5c63ac8d22--2" class="relative z-40 group block"><a class="sf-depth-1 menuparent text-color-white no-underline text-lg py-6 px-4 block" href="https://www.sfomuseum.org/about">About</a>
+				  <ul class="bg-color-kumera border-t-4 border-color-kumera hidden absolute pin-t16 pin-l w-56 z-40 list-reset shadow">
+				      <li id="main-menu-link-content0c99f5ae-ad54-48dd-b00f-4641d9c27be5--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/history">History</a></li>
+				      <li id="main-menu-link-contentc7753d7c-cb26-43f3-bbb5-3e6a1f1a860a--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/press-releases">Press Releases</a></li>
+				      <li id="main-menu-link-content7a9cdbe1-aed2-4c2f-ba6a-56f792fd525d--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/blog">Blog</a></li>
+				      <li id="main-menu-link-content053a7e1d-9b08-480d-806b-32968ef7d34a--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/employment">Employment</a></li>
+				      <li id="main-menu-link-contentf48361f3-d735-4abd-8c7e-e0eb36ee23de--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/faqs">FAQs</a></li>
+				      <li id="main-menu-link-content246d6389-3c13-46fd-bba5-0f1c994d49d5--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/visitor_survey">Visitor Survey</a></li>
+				      <li id="main-menu-link-contente00f2965-92d8-4757-95cf-e93ec79fcadb--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/contact">Contact</a></li>
+				      <li id="main-menu-link-contente7a301e5-b6cb-43fb-b2de-a59e246b173c--2" class="hover:bg-color-yellow-metal"><a class="sf-depth-2 text-color-white no-underline text-lg py-3 px-6 block" href="https://www.sfomuseum.org/about/image-permissions">Image Permissions</a></li>
+				  </ul>
+			      </li>
+			  </ul>
+		      </div>
+
+		      <div class="search-controls w-10 text-center text-color-white flex-no-grow cursor-pointer">
+			  <svg class="svg-inline--fa fa-search fa-w-16 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-lg fa-search"></i> -->
+		      </div>
+  
+		      <div class="mobile-menu-controls w-10 text-center text-color-white flex-no-grow lg:hidden">
+			  <div class="closed text-center cursor-pointer">
+			      <svg class="svg-inline--fa fa-bars fa-w-14 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-lg fa-bars"></i> -->
+			  </div>
+			  <div class="opened text-center cursor-pointer hidden">
+			      <svg class="svg-inline--fa fa-times fa-w-11 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-lg fa-times"></i> -->
+			  </div>
+		      </div>
+		  </div>
+	      </div>
+	      
+	      <nav role="navigation" aria-labelledby="block-museum-mobile-menu-menu" id="block-museum-mobile-menu" class="hidden lg:hidden">
+		  
+		  <h2 class="visually-hidden" id="block-museum-mobile-menu-menu">Main navigation (mobile)</h2>
+		  
+                  <ul class="list-reset ">
+                      <li class="border-t relative border-color-kumera">
+			  <a href="https://www.sfomuseum.org/exhibitions" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-4 font-bold" data-drupal-link-system-path="exhibitions">Exhibitions</a>
+			  <div class="sub-nav-controls absolute p-4 pin-t pin-r cursor-pointer text-color-white">
+			      <div class="closed">
+				  <svg class="svg-inline--fa fa-chevron-right fa-w-10 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-sm fa-chevron-right"></i> -->
+			      </div>
+			      <div class="opened hidden">
+				  <svg class="svg-inline--fa fa-chevron-down fa-w-14 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg><!-- <i class="fas fa-sm fa-chevron-down"></i> -->
+			      </div>
+			  </div>
+			  <ul class="list-reset hidden">
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/exhibitions" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="exhibitions">Current Exhibitions</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/exhibitions/past" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="exhibitions/past">Past Exhibitions</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/exhibitions/upcoming" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="exhibitions/upcoming">Upcoming Exhibitions</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/sites/default/files/inline-files/sfo_museum_gallery_map_220316.pdf" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" target="_blank">Gallery Map</a>
+			      </li>
+			  </ul>
+			  
+		      </li>
+                      <li class="border-t relative border-color-kumera">
+			  <a href="https://www.sfomuseum.org/aviation-museum-library" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-4 font-bold" data-drupal-link-system-path="node/21831">Aviation Museum &amp; Library</a>
+			  <div class="sub-nav-controls absolute p-4 pin-t pin-r cursor-pointer text-color-white">
+			      <div class="closed">
+				  <svg class="svg-inline--fa fa-chevron-right fa-w-10 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-sm fa-chevron-right"></i> -->
+			      </div>
+			      <div class="opened hidden">
+				  <svg class="svg-inline--fa fa-chevron-down fa-w-14 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg><!-- <i class="fas fa-sm fa-chevron-down"></i> -->
+			      </div>
+			  </div>
+			  <ul class="list-reset hidden">
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21831">Overview</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://collection.sfomuseum.org/" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8">Collection</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library/research-appointments" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21836">Research Appointments</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library/donating" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21841">Donating</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library/volunteering" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21846">Volunteering</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library/support-affiliate" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21851">Support Affiliate</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library/events" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21856">Events</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/aviation-museum-library/hours-directions" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21861">Hours &amp; Directions</a>
+			      </li>
+			  </ul>
+			  
+		      </li>
+                      <li class="border-t relative border-color-kumera">
+			  <a href="https://www.sfomuseum.org/public-art" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-4 font-bold" data-drupal-link-system-path="node/21866">Public Art</a>
+			  <div class="sub-nav-controls absolute p-4 pin-t pin-r cursor-pointer text-color-white">
+			      <div class="closed">
+				  <svg class="svg-inline--fa fa-chevron-right fa-w-10 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-sm fa-chevron-right"></i> -->
+			      </div>
+			      <div class="opened hidden">
+				  <svg class="svg-inline--fa fa-chevron-down fa-w-14 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg><!-- <i class="fas fa-sm fa-chevron-down"></i> -->
+			      </div>
+			  </div>
+			  <ul class="list-reset hidden">
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/public-art" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21866">Overview</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/public-art/public-collection" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="public-art/public-collection">Public Art Collection</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/sites/default/files/inline-files/sfo_public_art_map_220104.pdf" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" target="_blank">Public Art Map</a>
+			      </li>
+			  </ul>
+			  
+		      </li>
+                      <li class="border-t relative border-color-kumera">
+			  <a href="https://www.sfomuseum.org/programs" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-4 font-bold" data-drupal-link-system-path="node/21871">Programs</a>
+			  <div class="sub-nav-controls absolute p-4 pin-t pin-r cursor-pointer text-color-white">
+			      <div class="closed">
+				  <svg class="svg-inline--fa fa-chevron-right fa-w-10 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-sm fa-chevron-right"></i> -->
+			      </div>
+			      <div class="opened hidden">
+				  <svg class="svg-inline--fa fa-chevron-down fa-w-14 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg><!-- <i class="fas fa-sm fa-chevron-down"></i> -->
+			      </div>
+			  </div>
+			  <ul class="list-reset hidden">
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/programs" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21871">Overview</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/programs/video-arts" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21826">Video Arts</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/programs/photography" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21881">Photography</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/programs/student-art" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21886">Student Art</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/programs/education-program" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21876">Education Program</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/programs/kids-spot" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21891">Kids' Spot</a>
+			      </li>
+			  </ul>
+			  
+		      </li>
+                      <li class="border-t relative border-color-kumera">
+			  <a href="https://www.sfomuseum.org/about" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-4 font-bold" data-drupal-link-system-path="node/21896">About</a>
+			  <div class="sub-nav-controls absolute p-4 pin-t pin-r cursor-pointer text-color-white">
+			      <div class="closed">
+				  <svg class="svg-inline--fa fa-chevron-right fa-w-10 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-sm fa-chevron-right"></i> -->
+			      </div>
+			      <div class="opened hidden">
+				  <svg class="svg-inline--fa fa-chevron-down fa-w-14 fa-sm" aria-hidden="true" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg><!-- <i class="fas fa-sm fa-chevron-down"></i> -->
+			      </div>
+			  </div>
+			  <ul class="list-reset hidden">
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21896">Overview</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/history" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21901">History</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/press-releases" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="about/press-releases">Press Releases</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/blog" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="about/blog">Blog</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/employment" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21906">Employment</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/faqs" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/23217">FAQs</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/visitor_survey" title="SFO Museum Visitor Survey" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/24479">Visitor Survey</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/contact" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/21911">Contact</a>
+			      </li>
+			      <li class="border-t relative border-color-kumera">
+				  <a href="https://www.sfomuseum.org/about/image-permissions" class="block hover:bg-color-yellow-metal text-color-white no-underline py-4 pr-16 pl-8" data-drupal-link-system-path="node/24086">Image Permissions</a>
+			      </li>
+			  </ul>
+			  
+		      </li>
+		  </ul>
+		  
+	      </nav>
+	      
+	  </header>
+{{ end }}
