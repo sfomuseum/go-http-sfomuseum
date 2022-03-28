@@ -23,17 +23,12 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 
 	opts := &SFOMuseumOptions{
 		CSS: []string{
-			/*
-			"/css/sfomuseum.common.css",
-			"/css/sfomuseum.common.navi.css",
-			"/css/sfomuseum.common.spinner.css",
-			"/css/sfomuseum.common.media.css",						
-			*/
+			"/css/css_W0cKvDTOIvYQGze2fQgYetVT_LTYEp1XuXvz4AdVYjE.css",
+			"/css/css_tYMnZJENio3fbqTvIRK7wb8dpGIx2TaK1n--M2StjfQ.css",
+			"/css/sfomuseum.org.social.css",			
+			"/css/sfomuseum.org.bootstrap.css",			
 		},
 		JS: []string{
-			/*
-			"/javascript/sfomuseum.common.navi.init.js",
-			*/
 		},
 	}
 
@@ -48,6 +43,14 @@ func AppendResourcesHandler(next http.Handler, opts *SFOMuseumOptions) http.Hand
 // AppendResourcesHandlerWithPrefix will rewrite any HTML produced by previous handler to include the necessary markup to load SFOMuseum JavaScript files and related assets ensuring that all URIs are prepended with a prefix.
 func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions, prefix string) http.Handler {
 
+	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
+
+	bootstrap_opts.JS = []string{
+		"/javascript/bootstrap.bundle.min.js",
+	}
+
+	handler := bootstrap.AppendResourcesHandler(next, bootstrap_opts)
+	
 	js := opts.JS
 	css := opts.CSS
 
@@ -67,21 +70,8 @@ func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions,
 		Stylesheets: css,
 	}
 
-	handler := rewrite.AppendResourcesHandler(next, ext_opts)
-
-	// TO DO: 
-	// 1. Ensure Bootstrap is loaded first so that it doesn't override sfom.org -isms
-	// 2. Determine which pieces of Bootstrap are breaking sfom.org layout CSS
-	
+	handler = rewrite.AppendResourcesHandler(handler, ext_opts)
 	return handler
-	
-	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
-
-	bootstrap_opts.JS = []string{
-		"/javascript/bootstrap.bundle.min.js",
-	}
-
-	return bootstrap.AppendResourcesHandler(handler, bootstrap_opts)
 }
 
 // AssetsHandler returns a net/http FS instance containing the embedded SFOMuseum assets that are included with this package.

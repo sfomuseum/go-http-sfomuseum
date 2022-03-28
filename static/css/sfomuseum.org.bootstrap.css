@@ -1,0 +1,7 @@
+#superfish-main li a {
+	color: #fff !important;
+}
+
+#superfish-main li ul {
+	margin-top:-1px !important;
+}
