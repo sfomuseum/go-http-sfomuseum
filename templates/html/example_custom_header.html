@@ -1,3 +1,37 @@
 {{ define "example_custom_header" }}
+<div class="container">
 
+<nav class="navbar navbar-expand-lg bg-color-kumera" id="navbar-collection">
+
+    <div class="container-fluid navbar-container-collection" id="navbar-container-collection">
+
+  <a class="navbar-brand" href="https://collection.sfomuseum.org/" id="navbar-collection-logo" href="/"></a>
+
+
+  <button class="navbar-toggler navbar-toggler-collection" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav mr-auto" id="navbar-nav-collection">
+      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/">Collection</a></li>
+      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214207/with-images/">Archive</a></li>
+      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214203/with-images/">Museum</a></li>
+      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214217/with-images/">Library</a></li>
+      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/recent/">Recent</a></li>
+      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/random/" title="Load a random object from the Aviation Collection. You can also load a random object by pressing shift-R on your keyboard">Random</a></li>
+      </ul>
+
+      <form class="d-flex" action="https://collection.sfomuseum.org/search/" >
+        <input class="form-control me-2" type="search" placeholder="Search the collection" aria-label="Search" name="q" id="q">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+  </div>
+</div>
+</nav>
+    
+</div>
 {{ end }}

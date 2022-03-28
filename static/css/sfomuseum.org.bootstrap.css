@@ -1,24 +1,35 @@
+/* main navi hover link */
 #superfish-main li a {
 	color: #fff !important;
 }
 
+/* main navi hover menu */
 #superfish-main li ul {
 	margin-top:-1px !important;
 }
 
+/* search input submit button layout */
 #edit-submit-search-solr {
 	margin-top: 3px !important;
 	height: 44px;
 }
 
+/* search input layout */
 .pt-1 {
 	padding-top: .25rem !important;
 }
 
+/* search input layout */
 .pt-4 {
 	padding-top: 1rem !important;
 }
 
+/* search input layout */
 .pb-3 {
 	padding-bottom: .75rem !important;
+}
+
+/* flysfo, contact, etc. links */
+.pr-3 .border {
+	border: none !important;
 }
