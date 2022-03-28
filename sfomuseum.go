@@ -69,6 +69,12 @@ func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions,
 
 	handler := rewrite.AppendResourcesHandler(next, ext_opts)
 
+	// TO DO: 
+	// 1. Ensure Bootstrap is loaded first so that it doesn't override sfom.org -isms
+	// 2. Determine which pieces of Bootstrap are breaking sfom.org layout CSS
+	
+	return handler
+	
 	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
 
 	bootstrap_opts.JS = []string{
