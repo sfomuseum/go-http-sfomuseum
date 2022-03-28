@@ -7,3 +7,6 @@ lambda:
 	GOOS=linux go build -mod vendor -o main cmd/example/main.go
 	zip example.zip main
 	rm -f main
+
+docker:
+	docker build -t sfomuseum-sweater-server .	
