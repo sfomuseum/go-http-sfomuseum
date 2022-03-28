@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"errors"
-	"flag"
-	"fmt"
+	"github.com/aaronland/go-http-server"		
+	"github.com/sfomuseum/go-flags/flagset"	
 	"github.com/sfomuseum/go-http-sfomuseum"
 	"github.com/sfomuseum/go-http-sfomuseum/templates/html"
 	"html/template"
@@ -41,11 +41,18 @@ func ExampleHandler(templates *template.Template, example_vars *ExampleVars) (ht
 
 func main() {
 
-	host := flag.String("host", "localhost", "The host name to listen for requests on.")
-	port := flag.Int("port", 8080, "The host port to listen for requests on.")
+	fs := flagset.NewFlagSet("example")
 
-	flag.Parse()
+	server_uri := fs.String("server-uri", "http://localhost:8080", "A valid aaronland/go-http-server URI.")
 
+	flagset.Parse(fs)
+
+	err := flagset.SetFlagsFromEnvVars(fs, "EXAMPLE")
+
+	if err != nil {
+		log.Fatalf("Failed to set flags from environment variables, %v", err)
+	}
+	
 	ctx := context.Background()
 
 	t, err := html.LoadTemplates(ctx, "*.html")
@@ -79,10 +86,15 @@ func main() {
 
 	mux.Handle("/", example_handler)
 
-	endpoint := fmt.Sprintf("%s:%d", *host, *port)
-	log.Printf("Listening for requests on %s\n", endpoint)
+	s, err := server.NewServer(ctx, *server_uri)
 
-	err = http.ListenAndServe(endpoint, mux)
+	if err != nil {
+		log.Fatalf("Failed to create server, %v", err)
+	}
+
+	log.Printf("Listening for requests on %s\n", s.Address())
+
+	err = s.ListenAndServe(ctx, mux)
 
 	if err != nil {
 		log.Fatalf("Failed to serve requests, %v", err)
