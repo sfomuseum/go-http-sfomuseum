@@ -1,0 +1,26 @@
+.nav-item a {
+	color: #fff !important;
+}
+
+#navbar-collection-content input {
+	border-radius: 0px;
+	border: none;
+}
+
+#navbar-collection-content button {
+	border-radius: 1px;
+	background-color: #8a741d;
+	color: #fff;
+}
+.container-fluid {
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.navbar-brand {
+	color:#fff !important;
+}
+
+.navbar-brand:hover {
+	color:#fff !important;
+}
