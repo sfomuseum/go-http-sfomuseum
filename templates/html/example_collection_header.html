@@ -9,30 +9,33 @@
 
 	<a class="navbar-brand" href="https://collection.sfomuseum.org/" id="navbar-collection-logo" href="/">Collection</a>
 
-  <button class="navbar-toggler navbar-toggler-collection" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collection-content" aria-controls="navbar-collection-context" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler navbar-toggler-collection" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collection-content" aria-controls="navbar-collection-content" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon">
 
-      <span class="navbar-toggler-icon"></span>
-    </button>
+		<svg class="svg-inline--fa fa-bars fa-w-14 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="#fff" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
 
-  <div class="collapse navbar-collapse" id="navbar-collection-content">
+	    </span>
+	</button>
 
-      <ul class="navbar-nav mr-auto" id="navbar-nav-collection">
-      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214207/with-images/">Archive</a></li>
-      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214203/with-images/">Museum</a></li>
-      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214217/with-images/">Library</a></li>
-      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/recent/">Recent</a></li>
-      	  <li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/random/" title="Load a random object from the Aviation Collection. You can also load a random object by pressing shift-R on your keyboard">Random</a></li>
-      </ul>
-
-      <form class="d-flex" action="https://collection.sfomuseum.org/search/" >
-        <input class="form-control me-2" type="search" placeholder="Search the collection" aria-label="Search" name="q" id="q">
-        <button class="btn" type="submit">Search</button>
-      </form>
-
-  </div>
-</div>
+	<div class="collapse navbar-collapse" id="navbar-collection-content">
+	    
+	    <ul class="navbar-nav mr-auto" id="navbar-nav-collection">
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214207/with-images/">Archive</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214203/with-images/">Museum</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214217/with-images/">Library</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/recent/">Recent</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/random/" title="Load a random object from the Aviation Collection. You can also load a random object by pressing shift-R on your keyboard">Random</a></li>
+	    </ul>
+	    
+	    <form class="d-flex" action="https://collection.sfomuseum.org/search/" >
+		<input class="form-control me-2" type="search" placeholder="Search the collection" aria-label="Search" name="q" id="q">
+		<button class="btn" type="submit">Search</button>
+	    </form>
+	    
+	</div>
+    </div>
 </nav>
-    
+
 </div>
 </div>
 {{ end }}
