@@ -1,0 +1,30 @@
+{{ define "example_signin_header" }}
+<div style="background-color:#e0c877; padding-left:2rem;padding-right:2rem;">
+
+<nav class="navbar navbar-expand-lg" id="navbar-signin">
+
+    <div class="container-fluid navbar-container-signin" id="navbar-container-signin">
+
+	<a class="navbar-brand" href="#" id="navbar-signin-logo" href="/">Hi, {NAME}</a>
+
+	<button class="navbar-toggler navbar-toggler-signin" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-signin-content" aria-controls="navbar-signin-content" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon">
+
+		<svg class="svg-inline--fa fa-bars fa-w-14 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="#fff" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+
+	    </span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbar-signin-content">
+	    
+	    <ul class="navbar-nav mr-auto" id="navbar-nav-signin">
+      		<li class="nav-item"><a class="nav-link" href="#">Your account</a></li>
+      		<li class="nav-item"><a class="nav-link" href="#">Sign out</a></li>
+	    </ul>
+	    	    
+	</div>
+    </div>
+</nav>
+
+</div>
+{{ end }}
