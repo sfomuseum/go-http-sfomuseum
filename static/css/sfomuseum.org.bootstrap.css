@@ -1,5 +1,4 @@
-/* specific CSS rules to ensure that the default header, footer and navi elements
-   render correctly if bootstrap is present */
+/* Specific CSS rules to ensure that the default header, footer and navi elements render correctly if bootstrap is present */
 
 /* main navi hover link */
 #superfish-main li a {
@@ -35,4 +34,83 @@
 /* flysfo, contact, etc. links */
 .pr-3 .border {
 	border: none !important;
+}
+
+/* Bootstrap tweaks to make <nav> elements render following the house style conventions */
+
+.nav-item a {
+	color: #fff !important;
+}
+
+#navbar-collection-content input {
+	border-radius: 0px;
+	border: none;
+}
+
+#navbar-collection-content button {
+	border-radius: 1px;
+	background-color: #8a741d;
+	color: #fff;
+}
+.container-fluid {
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.navbar-brand {
+	color:#fff !important;
+	font-size: 1rem !important;
+	font-weight: 700;
+}
+
+.navbar-brand:hover {
+	color:#fff !important;
+}
+
+@media (min-width: 992px){
+	
+	.container-collection {
+		max-height: 70px !important;
+	}
+}
+
+@media (max-width: 992px){
+	
+	.container-collection {
+		max-width:none !important;
+		padding-left: 0px !important;
+		padding-right: 0px !important;		
+	}
+
+	.navbar-brand {
+		padding-left: 1rem !important;
+	}
+
+	.navbar-search {
+		padding: 1rem !important;
+		padding-top: 1.5rem !important;
+		border-top: 1px solid #a0915e;		
+	}
+	
+	.navbar-toggler {
+		padding-right: 1.3rem !important;
+	}
+	
+	.nav-item {
+		font-weight: 700;
+		border-top: 1px solid #a0915e;
+		padding: 1rem !important;		
+	}
+
+	.nav-item:first-child {
+		border: none !important;
+	}
+}
+
+/* Rules to account for specific Bootstrap overrides */
+
+button {
+	background-color: #8a741d !important;
+	color: #fff !important;
+	border-radius: 0px !important;;
 }
