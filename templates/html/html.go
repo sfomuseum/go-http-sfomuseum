@@ -22,6 +22,7 @@ func LoadTemplates(ctx context.Context, path_templates string) (*template.Templa
 func TemplatesFuncMap() template.FuncMap {
 
 	return template.FuncMap{
+		// For example: {{ if (IsAvailable "Account" .) }}
 		"IsAvailable": avail,
 	}
 }

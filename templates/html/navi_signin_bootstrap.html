@@ -6,8 +6,19 @@
 
     <div class="container-fluid navbar-container-signin" id="navbar-container-signin">
 
-	<a class="navbar-brand" href="https://signin.sfomuseum.org/signin/" id="navbar-signin-logo" href="/">Sign in</a>
+	{{ if (IsAvailable "Account" .) }}
+	
+	{{ if .Account }}
+	<a class="navbar-brand" href="#" id="navbar-signin-logo" href="/">Hi, {{ .Account.GivenName }}</a>
+	{{ else }}
+	<a class="navbar-brand" href="/signin/" id="navbar-signin-logo" href="/">Sign in</a>
+	{{ end }}
 
+	{{ else }}
+	<a class="navbar-brand" href="/signin/" id="navbar-signin-logo" href="/">Sign in</a>
+	{{ end }}
+
+	
 	<button class="navbar-toggler navbar-toggler-signin" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-signin-content" aria-controls="navbar-signin-content" aria-expanded="false" aria-label="Toggle navigation" style="padding-right:4px;">
 	    <span class="navbar-toggler-icon">
 
@@ -19,8 +30,11 @@
 	<div class="collapse navbar-collapse" id="navbar-signin-content">
 	    
 	    <ul class="navbar-nav mr-auto" id="navbar-nav-signin">
-      		<li class="nav-item"><a class="nav-link" href="#">Your account</a></li>
-      		<li class="nav-item"><a class="nav-link" href="#">Sign out</a></li>		
+		{{ if (IsAvailable "Account" .) }}		
+		{{ if .Account }}
+      		<li class="nav-item"><a class="nav-link" href="/signout/">Sign out</a></li>
+		{{ end }}
+		{{ end }}
 	    </ul>
 	    
 	</div>
