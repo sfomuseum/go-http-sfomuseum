@@ -24,3 +24,9 @@
 .navbar-brand:hover {
 	color:#fff !important;
 }
+
+@media (max-width: 992px){
+	.container-collection {
+		max-width:none !important;
+	}	
+}
