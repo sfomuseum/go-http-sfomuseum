@@ -1,3 +1,5 @@
+/* Bootstrap tweaks to make <nav> elements render following the house style conventions */
+
 .nav-item a {
 	color: #fff !important;
 }

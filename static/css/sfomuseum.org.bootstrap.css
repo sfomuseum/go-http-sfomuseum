@@ -1,3 +1,6 @@
+/* specific CSS rules to ensure that the default header, footer and navi elements
+   render correctly if bootstrap is present */
+
 /* main navi hover link */
 #superfish-main li a {
 	color: #fff !important;
