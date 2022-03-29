@@ -18,6 +18,8 @@
 	<a class="navbar-brand" href="/signin/" id="navbar-signin-logo" href="/">Sign in</a>
 	{{ end }}
 
+	    {{ if (IsAvailable "Account" .) }}		
+	    {{ if .Account }}
 	
 	<button class="navbar-toggler navbar-toggler-signin" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-signin-content" aria-controls="navbar-signin-content" aria-expanded="false" aria-label="Toggle navigation" style="padding-right:4px;">
 	    <span class="navbar-toggler-icon">
@@ -30,14 +32,13 @@
 	<div class="collapse navbar-collapse" id="navbar-signin-content">
 	    
 	    <ul class="navbar-nav mr-auto" id="navbar-nav-signin">
-		{{ if (IsAvailable "Account" .) }}		
-		{{ if .Account }}
       		<li class="nav-item"><a class="nav-link" href="/signout/">Sign out</a></li>
-		{{ end }}
-		{{ end }}
 	    </ul>
-	    
 	</div>
+
+	{{ end }}
+	{{ end }}
+	
     </div>
 </nav>
 

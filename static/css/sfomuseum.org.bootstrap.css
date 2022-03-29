@@ -114,3 +114,7 @@ button {
 	color: #fff !important;
 	border-radius: 0px !important;;
 }
+
+.navbar-toggler {
+	background-color: transparent !important;
+}
