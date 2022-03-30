@@ -29,6 +29,7 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 			"/css/sfomuseum.org.bootstrap.css",
 		},
 		JS: []string{
+			"/javascript/jquery-3.6.0.min.js",
 			/*
 				"/javascript/js_WQHdplyrlQfKdHIPVZKrk2a-733sZNBYZPC_xRA5baU.js",
 				"/javascript/js_J4lAocQOE0MG-pYudi5Xv0k0kjsq69AV9GOSU4WkrX0.js",
