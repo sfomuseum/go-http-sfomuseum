@@ -108,11 +108,13 @@
         });
     };
 })(jQuery);;
+
 /**
  * @file
  * The Superfish Drupal Behavior to apply the Superfish jQuery plugin to lists.
  */
 
+/*
 (function ($, Drupal, drupalSettings) {
 
     'use strict';
@@ -157,6 +159,9 @@
         }
     };
 })(jQuery, Drupal, drupalSettings);;
+
+*/
+
 /* Chosen v1.8.7 | (c) 2011-2018 by Harvest | MIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md */
 
 (function () {
