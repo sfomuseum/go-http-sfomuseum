@@ -30,7 +30,7 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 		},
 		JS: []string{
 			"/javascript/jquery-3.6.0.min.js",
-			"/javascript/superfish.js",			
+			"/javascript/superfish.min.js",			//https:// github.com/joeldbirch/superfish
 			/*
 				"/javascript/js_WQHdplyrlQfKdHIPVZKrk2a-733sZNBYZPC_xRA5baU.js",
 				"/javascript/js_J4lAocQOE0MG-pYudi5Xv0k0kjsq69AV9GOSU4WkrX0.js",
