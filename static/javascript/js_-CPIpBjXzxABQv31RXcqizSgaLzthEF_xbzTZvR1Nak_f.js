@@ -89,23 +89,9 @@
             };
 
         return this.each(function () {
-            var o = $.fn.superfish.o[this.serial]; /* get this menu's options */
+	    // pass
+	});
 
-            /* if callbacks already set, store them */
-            var _onBeforeShow = o.onBeforeShow,
-                _onHide = o.onHide;
-
-            $.extend($.fn.superfish.o[this.serial], {
-                onBeforeShow: function () {
-                    onBeforeShow.call(this); /* fire our Supposition callback */
-                    _onBeforeShow.call(this); /* fire stored callbacks */
-                },
-                onHide: function () {
-                    onHide.call(this); /* fire our Supposition callback */
-                    _onHide.call(this); /* fire stored callbacks */
-                }
-            });
-        });
     };
 })(jQuery);;
 
@@ -186,6 +172,13 @@
             select.removeAttr('style');
         }
 
+	return;
+
+	// This code always fails with a 'oldChosen' is not a function error
+	// https://github.com/harvesthq/chosen has a deprecation notice
+	// (20220330/thisisaaronland)
+
+	/*
         var ret = select.oldChosen(options);
 
         // only act if the select has display: none, otherwise chosen is unsupported (iPhone, etc)
@@ -196,6 +189,7 @@
             select.attr('tabindex', -1);
         }
         return ret;
+	*/
     };
 
     // Update Chosen elements when state has changed.
