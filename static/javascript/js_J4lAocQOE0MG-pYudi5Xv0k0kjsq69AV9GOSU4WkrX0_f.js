@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 (function ($, Drupal) {
@@ -38,6 +39,8 @@
     }
   };
 })(jQuery, Drupal);
+*/
+
 'use strict';
 
 (function ($, Drupal) {
