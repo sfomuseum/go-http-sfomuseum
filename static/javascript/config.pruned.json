@@ -1,0 +1,19 @@
+{
+   "superfish" : {
+      "superfish-main" : {
+         "id" : "superfish-main",
+         "plugins" : {
+            "supposition" : true
+         },
+         "sf" : {
+            "animation" : {
+               "height" : "show",
+               "opacity" : "show"
+            },
+            "autoArrows" : false,
+            "dropShadows" : false,
+            "speed" : "fast"
+         }
+      }
+   }
+}
