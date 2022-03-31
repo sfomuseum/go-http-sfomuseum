@@ -23,7 +23,6 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 
 	opts := &SFOMuseumOptions{
 		CSS: []string{
-			"/css/css_W0cKvDTOIvYQGze2fQgYetVT_LTYEp1XuXvz4AdVYjE_f.css",
 			"/css/css_tYMnZJENio3fbqTvIRK7wb8dpGIx2TaK1n--M2StjfQ_f.css",
 			"/css/sfomuseum.org.social_f.css",
 			"/css/sfomuseum.org.bootstrap.css",
