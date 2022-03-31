@@ -118,3 +118,8 @@ button {
 .navbar-toggler {
 	background-color: transparent !important;
 }
+
+.navbar-toggler:focus {
+	box-shadow: none !important;
+}
+
