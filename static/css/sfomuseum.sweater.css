@@ -30820,9 +30820,21 @@ svg:not(:root).svg-inline--fa {
 	color: #fff !important;
 }
 
+#superfish-main li a:hover {
+	color: #fff !important;
+}
+
 /* main navi hover menu */
 #superfish-main li ul {
 	margin-top:-1px !important;
+}
+
+.list-reset li a {
+	color: #fff !important;
+}
+
+.list-reset li a:hover {
+	color: #fff !important;
 }
 
 /* search input submit button layout */
