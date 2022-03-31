@@ -1,3 +1,6 @@
+window.addEventListener('load', function(e){
+
+
 // js_WQHdplyrlQfKdHIPVZKrk2a-733sZNBYZPC_xRA5baU_f.js
 
 
@@ -2535,3 +2538,6 @@ Drupal.debounce = function (func, wait, immediate) {
         }
     };
 })(jQuery, Drupal, drupalSettings);
+
+
+});

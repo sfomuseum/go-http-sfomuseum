@@ -12,7 +12,8 @@ docker:
 	docker build -t sfomuseum-sweater-server .	
 
 js:
-	echo "// js_WQHdplyrlQfKdHIPVZKrk2a-733sZNBYZPC_xRA5baU_f.js\n\n" > static/javascript/sfomuseum.sweater.js
+	echo "window.addEventListener('load', function(e){\n\n" > static/javascript/sfomuseum.sweater.js
+	echo "// js_WQHdplyrlQfKdHIPVZKrk2a-733sZNBYZPC_xRA5baU_f.js\n\n" >> static/javascript/sfomuseum.sweater.js
 	cat static/javascript/js_WQHdplyrlQfKdHIPVZKrk2a-733sZNBYZPC_xRA5baU_f.js >> static/javascript/sfomuseum.sweater.js
 	echo "\n" >> static/javascript/sfomuseum.sweater.js 
 	echo "// js_J4lAocQOE0MG-pYudi5Xv0k0kjsq69AV9GOSU4WkrX0_f.js\n\n" >> static/javascript/sfomuseum.sweater.js
@@ -20,3 +21,5 @@ js:
 	echo "\n" >> static/javascript/sfomuseum.sweater.js 
 	echo "// js_-CPIpBjXzxABQv31RXcqizSgaLzthEF_xbzTZvR1Nak_f.js\n\n" >> static/javascript/sfomuseum.sweater.js
 	cat static/javascript/js_-CPIpBjXzxABQv31RXcqizSgaLzthEF_xbzTZvR1Nak_f.js >> static/javascript/sfomuseum.sweater.js
+	echo "\n" >> static/javascript/sfomuseum.sweater.js 
+	echo "});" >> static/javascript/sfomuseum.sweater.js
