@@ -137,3 +137,10 @@ button {
 	box-shadow: none !important;
 }
 
+.navbar-toggler[aria-expanded=false] .navbar-toggler-icon  .hamburger-close {
+	display:none;
+}
+
+.navbar-toggler[aria-expanded=true] .navbar-toggler-icon  .hamburger-open {
+	display:none;
+}
