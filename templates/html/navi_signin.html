@@ -1,0 +1,50 @@
+{{ define "navi_signin" }}
+<div class="header" style="background-color:#e0c877;">
+    <div class="container container-collection">
+	
+<nav class="navbar navbar-expand-lg" id="navbar-signin">
+
+    <div class="container-fluid navbar-container-signin" id="navbar-container-signin">
+
+	{{ if (IsAvailable "Account" .) }}
+	
+	{{ if .Account }}
+	<a class="navbar-brand" href="#" id="navbar-signin-logo" href="/">Hi, {{ .Account.GivenName }}</a>
+	{{ else }}
+	<a class="navbar-brand" href="/signin/" id="navbar-signin-logo" href="/">Sign in</a>
+	{{ end }}
+
+	{{ else }}
+	<a class="navbar-brand" href="/signin/" id="navbar-signin-logo" href="/">Sign in</a>
+	{{ end }}
+
+
+	{{ if (IsAvailable "Account" .) }}	
+	{{ if .Account }}
+	
+	<button class="navbar-toggler navbar-toggler-signin" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-signin-content" aria-controls="navbar-signin-content" aria-expanded="false" aria-label="Toggle navigation" style="padding-right:4px;">
+	    <span class="navbar-toggler-icon">
+
+		<svg class="hamburger-open svg-inline--fa fa-bars fa-w-14 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""  style="font-size:1.4rem;"><path fill="#fff" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+
+		<svg class="hamburger-close svg-inline--fa fa-times fa-w-11 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+
+	    </span>
+	</button>
+	
+	<div class="collapse navbar-collapse" id="navbar-signin-content">
+	    
+	    <ul class="navbar-nav mr-auto" id="navbar-nav-signin">
+      		<li class="nav-item"><a class="nav-link" href="/signout/">Sign out</a></li>
+	    </ul>
+	</div>
+
+	{{ end }}
+	{{ end }}
+	
+    </div>
+</nav>
+
+</div>
+</div>
+{{ end }}
