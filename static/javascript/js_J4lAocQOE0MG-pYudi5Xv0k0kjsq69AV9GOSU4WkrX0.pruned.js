@@ -7,27 +7,6 @@
   Drupal.behaviors.collapsible = {
     attach: function attach(context, settings) {
 
-      $('.collapse').each(function () {
-        var id = $(this).attr('id');
-        var trigger = $('[aria-controls=' + id + ']');
-
-        if ($(this).hasClass('hidden')) {
-          trigger.find('.collapsed').removeClass('hidden');
-        } else {
-          trigger.find('.expanded').removeClass('hidden');
-        }
-
-        trigger.on('click', function (event) {
-          event.preventDefault();
-
-          $(this).toggleClass('expanded');
-
-          $('#' + id).slideToggle(function () {
-            trigger.find('.collapsed').toggle();
-            trigger.find('.expanded').toggle();
-          });
-        });
-      });
     }
   };
 })(jQuery, Drupal);
