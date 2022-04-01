@@ -1,3 +1,4 @@
+// package static provides static assets for SFO Museum web applications.
 package static
 
 import (

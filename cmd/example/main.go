@@ -1,3 +1,4 @@
+// example is a simple HTTP web server that displays a webpage using the common SFO Museum header and footer elements.
 package main
 
 import (
@@ -12,11 +13,13 @@ import (
 	"net/http"
 )
 
+// ExampleVars is struct containing template variables for the example website.
 type ExampleVars struct {
-	IncludeNaviSearch bool
-	Title             string
+	// Title is the value assigned to the example website's HTML `title` element.
+	Title string
 }
 
+// ExampleHandler is a `http.Handler` for rendering the example website templates.
 func ExampleHandler(templates *template.Template, example_vars *ExampleVars) (http.Handler, error) {
 
 	t := templates.Lookup("example")
@@ -55,7 +58,7 @@ func main() {
 
 	ctx := context.Background()
 
-	t, err := html.LoadTemplates(ctx, "*.html")
+	t, err := html.LoadTemplates(ctx)
 
 	if err != nil {
 		log.Fatalf("Failed to parse templates, %v", err)
@@ -72,8 +75,7 @@ func main() {
 	sfomuseum_opts := sfomuseum.DefaultSFOMuseumOptions()
 
 	example_vars := &ExampleVars{
-		Title:             "Example",
-		IncludeNaviSearch: true,
+		Title: "Example",
 	}
 
 	example_handler, err := ExampleHandler(t, example_vars)

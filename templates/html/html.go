@@ -1,3 +1,5 @@
+// package html provides HTML templates for SFO Museum web applications.
+// The `common_*` HTML templates are derived from the source code of the sfomuseum.org website.
 package html
 
 import (
@@ -10,7 +12,10 @@ import (
 //go:embed *.html
 var FS embed.FS
 
-func LoadTemplates(ctx context.Context, path_templates string) (*template.Template, error) {
+// LoadTemplates loads the templates in the `html` package's embedded filesystem
+// and returns a new `template.Template` instance with support for the (template)
+// functions defined in `TemplatesFuncMap`.
+func LoadTemplates(ctx context.Context) (*template.Template, error) {
 
 	funcs := TemplatesFuncMap()
 
@@ -19,6 +24,8 @@ func LoadTemplates(ctx context.Context, path_templates string) (*template.Templa
 	return t.ParseFS(FS, "*.html")
 }
 
+// TemplatesFuncMap returns a `template.FuncMap` containing common HTML template
+// functions used by SFO Museum web applications.
 func TemplatesFuncMap() template.FuncMap {
 
 	return template.FuncMap{

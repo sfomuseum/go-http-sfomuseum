@@ -6,6 +6,8 @@ import (
 
 // https://github.com/unrolled/secure/blob/v1/secure.go
 
+// SecuresHeadersHandler is a middleware `http.Handler` that appends specific HTTP headers
+// for improved security.
 func SecureHeadersHandler(next http.Handler) http.Handler {
 
 	headers := map[string][]string{

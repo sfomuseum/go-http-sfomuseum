@@ -2,9 +2,9 @@
 
 Go package to provide common elements for SFO Museum web applications, notably headers and footers.
 
-## Important
+## Documentation
 
-This is work in progress and documentation is incomplete.
+[![Go Reference](https://pkg.go.dev/badge/github.com/sfomuseum/go-http-sfomuseum.svg)](https://pkg.go.dev/github.com/sfomuseum/go-http-sfomuseum)
 
 ## Motivation
 
@@ -15,4 +15,3 @@ The templates will not be portable across languages but the idea is for this pac
 ## Usage
 
 For now, have a look at [cmd/example/main.go](cmd/example/main.go)
-
