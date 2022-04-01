@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"errors"
-	"github.com/aaronland/go-http-server"		
-	"github.com/sfomuseum/go-flags/flagset"	
+	"github.com/aaronland/go-http-server"
+	"github.com/sfomuseum/go-flags/flagset"
 	"github.com/sfomuseum/go-http-sfomuseum"
 	"github.com/sfomuseum/go-http-sfomuseum/templates/html"
 	"html/template"
@@ -52,7 +52,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to set flags from environment variables, %v", err)
 	}
-	
+
 	ctx := context.Background()
 
 	t, err := html.LoadTemplates(ctx, "*.html")

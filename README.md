@@ -1,6 +1,6 @@
 # go-http-sfomuseum
 
-Go package to provide common elements for web applications, notably headers and footers.
+Go package to provide common elements for SFO Museum web applications, notably headers and footers.
 
 ## Important
 
