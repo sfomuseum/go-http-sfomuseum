@@ -81,6 +81,31 @@
 	color:#fff !important;
 }
 
+/* Rules to account for specific Bootstrap overrides */
+
+button {
+	background-color: #8a741d !important;
+	color: #fff !important;
+	border-radius: 0px !important;;
+}
+
+.navbar-toggler {
+	background-color: transparent !important;
+	padding-right: 4px !important;
+}
+
+.navbar-toggler:focus {
+	box-shadow: none !important;
+}
+
+.navbar-toggler[aria-expanded=false] .navbar-toggler-icon  .hamburger-close {
+	display:none;
+}
+
+.navbar-toggler[aria-expanded=true] .navbar-toggler-icon  .hamburger-open {
+	display:none;
+}
+
 @media (min-width: 992px){
 	
 	.container-collection {
@@ -121,27 +146,3 @@
 	}
 }
 
-/* Rules to account for specific Bootstrap overrides */
-
-button {
-	background-color: #8a741d !important;
-	color: #fff !important;
-	border-radius: 0px !important;;
-}
-
-.navbar-toggler {
-	background-color: transparent !important;
-	padding-right: 4px !important;
-}
-
-.navbar-toggler:focus {
-	box-shadow: none !important;
-}
-
-.navbar-toggler[aria-expanded=false] .navbar-toggler-icon  .hamburger-close {
-	display:none;
-}
-
-.navbar-toggler[aria-expanded=true] .navbar-toggler-icon  .hamburger-open {
-	display:none;
-}
