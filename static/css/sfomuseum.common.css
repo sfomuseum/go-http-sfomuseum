@@ -1,6 +1,15 @@
 
 /* IDs */
 
+#block-museum-sociallinks {
+	text-align:center !important;
+}
+
+#block-museum-menu-footer {
+	justify-content: center;
+	display: grid;
+}
+
 #pagination-previous-page {
     color:#8a741d !important;
 }
