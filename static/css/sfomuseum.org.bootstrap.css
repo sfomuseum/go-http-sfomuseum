@@ -131,6 +131,7 @@ button {
 
 .navbar-toggler {
 	background-color: transparent !important;
+	padding-right: 4px !important;
 }
 
 .navbar-toggler:focus {
