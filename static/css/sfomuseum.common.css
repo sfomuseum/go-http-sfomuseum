@@ -23,6 +23,14 @@
 	color: #616161 !important;
 }
 
+#block-museum-footerbottom  a {
+	color: #616161 !important;
+}
+
+#block-museum-footerbottom  a:hover {
+	color: #616161 !important;
+}
+
 #pagination-previous-page {
     color:#8a741d !important;
 }
