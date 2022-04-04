@@ -10,6 +10,19 @@
 	display: grid;
 }
 
+#block-museum-copyright {
+	text-align:center !important;
+}
+
+
+#block-mainnavigation-footer  a {
+	color: #616161 !important;
+}
+
+#block-mainnavigation-footer  a:hover {
+	color: #616161 !important;
+}
+
 #pagination-previous-page {
     color:#8a741d !important;
 }
