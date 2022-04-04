@@ -291,6 +291,14 @@
 	font-size:.933rem;
 }
 
+.main-container a {
+	color: #8a741d !important;
+}
+
+.main-container a:hover {
+	color: #8a741d !important;
+}
+
 .pagination {
     margin-top:4rem;
 }
