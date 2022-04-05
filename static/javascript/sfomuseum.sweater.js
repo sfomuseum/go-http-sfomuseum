@@ -64,125 +64,8 @@ window.Drupal = {
             }
         });
     };
-    
-    Drupal.stringReplace = function (str, args, keys) {
-        if (str.length === 0) {
-            return str;
-        }
 
-        if (!Array.isArray(keys)) {
-            keys = Object.keys(args || {});
-            keys.sort(function (a, b) {
-                return a.length - b.length;
-            });
-        }
-
-        if (keys.length === 0) {
-            return str;
-        }
-
-        var key = keys.pop();
-        var fragments = str.split(key);
-
-        if (keys.length) {
-            for (var i = 0; i < fragments.length; i++) {
-                fragments[i] = Drupal.stringReplace(fragments[i], args, keys.slice(0));
-            }
-        }
-
-        return fragments.join(args[key]);
-    };
-    
-    Drupal.url = function (path) {
-        return drupalSettings.path.baseUrl + drupalSettings.path.pathPrefix + path;
-    };
-
-    Drupal.url.toAbsolute = function (url) {
-        var urlParsingNode = document.createElement('a');
-
-        try {
-            url = decodeURIComponent(url);
-        } catch (e) {}
-
-        urlParsingNode.setAttribute('href', url);
-        return urlParsingNode.cloneNode(false).href;
-    };
-
-    Drupal.url.isLocal = function (url) {
-        var absoluteUrl = Drupal.url.toAbsolute(url);
-        var protocol = window.location.protocol;
-
-        if (protocol === 'http:' && absoluteUrl.indexOf('https:') === 0) {
-            protocol = 'https:';
-        }
-
-        var baseUrl = "".concat(protocol, "//").concat(window.location.host).concat(drupalSettings.path.baseUrl.slice(0, -1));
-
-        try {
-            absoluteUrl = decodeURIComponent(absoluteUrl);
-        } catch (e) {}
-
-        try {
-            baseUrl = decodeURIComponent(baseUrl);
-        } catch (e) {}
-
-        return absoluteUrl === baseUrl || absoluteUrl.indexOf("".concat(baseUrl, "/")) === 0;
-    };
-
-    Drupal.formatPlural = function (count, singular, plural, args, options) {
-        args = args || {};
-        args['@count'] = count;
-        var pluralDelimiter = drupalSettings.pluralDelimiter;
-        var translations = Drupal.t(singular + pluralDelimiter + plural, args, options).split(pluralDelimiter);
-        var index = 0;
-
-        if (typeof drupalTranslations !== 'undefined' && drupalTranslations.pluralFormula) {
-            index = count in drupalTranslations.pluralFormula ? drupalTranslations.pluralFormula[count] : drupalTranslations.pluralFormula.default;
-        } else if (args['@count'] !== 1) {
-            index = 1;
-        }
-
-        return translations[index];
-    };
-
-    Drupal.encodePath = function (item) {
-        return window.encodeURIComponent(item).replace(/%2F/g, '/');
-    };
-
-    Drupal.deprecationError = function (_ref) {
-        var message = _ref.message;
-
-        if (drupalSettings.suppressDeprecationErrors === false && typeof console !== 'undefined' && console.warn) {
-            console.warn("[Deprecation] ".concat(message));
-        }
-    };
-
-    Drupal.deprecatedProperty = function (_ref2) {
-        var target = _ref2.target,
-            deprecatedProperty = _ref2.deprecatedProperty,
-            message = _ref2.message;
-
-        if (!Proxy || !Reflect) {
-            return target;
-        }
-
-        return new Proxy(target, {
-            get: function get(target, key) {
-                if (key === deprecatedProperty) {
-                    Drupal.deprecationError({
-                        message: message
-                    });
-                }
-
-                for (var _len = arguments.length, rest = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-                    rest[_key - 2] = arguments[_key];
-                }
-
-                return Reflect.get.apply(Reflect, [target, key].concat(rest));
-            }
-        });
-    };
-
+    /*
     Drupal.theme = function (func) {
         if (func in Drupal.theme) {
             var _Drupal$theme;
@@ -198,6 +81,8 @@ window.Drupal = {
     Drupal.theme.placeholder = function (str) {
         return "<em class=\"placeholder\">".concat(Drupal.checkPlain(str), "</em>");
     };
+    */
+    
 })(Drupal, window.drupalSettings, window.drupalTranslations, window.console, window.Proxy, window.Reflect);;
 
 /* seems necessary */
