@@ -78,4 +78,5 @@ window.Drupal = {
     domReady(function () {
         Drupal.attachBehaviors(document, drupalSettings);
     });
-})(Drupal, window.drupalSettings);;
+    
+})(Drupal, window.drupalSettings);
