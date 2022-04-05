@@ -2,8 +2,9 @@
 
 "use strict";
 
-(function ($, Drupal) {
+/* necessary for mobile menu */
 
+(function ($, Drupal) {
 
   Drupal.behaviors.mobileMenu = {
     attach: function attach(context) {
@@ -30,8 +31,7 @@
   };
 })(jQuery, Drupal);
 
-
-'use strict';
+/* necessary for search box */
 
 (function ($, Drupal) {
 
