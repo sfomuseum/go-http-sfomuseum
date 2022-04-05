@@ -6,6 +6,8 @@
  *   http://opensource.org/licenses/MIT
  *   http://opensource.org/licenses/GPL-2.0
  */
+
+/*
 (function (e) {
     "use strict";
     if (typeof exports === "object" && typeof exports.nodeName !== "string") {
@@ -40,6 +42,7 @@
         })
     }
 });
+ */
 
 /* seems necessary */
    
