@@ -14,13 +14,27 @@
 	margin-top:-1px !important;
 }
 
-/* main menu mobile hamburger */
 .list-reset li a {
+	color: #fff!important;
+}
+
+.list-reset li a:hover {
+	color: #fff!important;
+}
+
+a .nav-link {
 	color: #fff !important;
 }
 
-/* main menu mobile hamburger */
-.list-reset li a:hover {
+a .navbar-brand {
+	color: #fff !important;
+}
+
+.nav-link:visited {
+	color: #fff !important;
+}
+
+.nav-link:hover {
 	color: #fff !important;
 }
 

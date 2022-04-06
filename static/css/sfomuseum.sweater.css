@@ -30839,6 +30839,18 @@ svg:not(:root).svg-inline--fa {
 	color: #fff !important;
 }
 
+.nav-link {
+	color: #fff !important;
+}
+
+.nav-link:visited {
+	color: #fff !important;
+}
+
+.nav-link:hover {
+	color: #fff !important;
+}
+
 /* search input submit button layout */
 #edit-submit-search-solr {
 	margin-top: 3px !important;
