@@ -287,8 +287,8 @@ body {
 }
 
 .list-view-item {
-    min-width:320px;
-    max-width:320px; 
+    min-width:270px;
+    max-width:270px; 
     min-height:520px;
     max-height:520px;
     margin:.5rem;
