@@ -43,7 +43,7 @@ js-deps:
 	echo "// jquery.once.min.js\n\n" >> static/javascript/sfomuseum.org.deps.js
 	cat static/javascript/jquery.once.min.js >> static/javascript/sfomuseum.org.deps.js
 	echo "// superfish.min.js\n\n" >> static/javascript/sfomuseum.org.deps.js
-	cat static/javascript/superfish.min.js >> static/javascript/sfomuseum.org.deps.js
+	cat static/javascript/superfish.min.js >> static/javascript/sfomuseum.org.deps.min.js
 
 css:
 	go run -mod vendor cmd/minify/main.go -media-type text/css static/css/sfomuseum.org.base.css static/css/sfomuseum.org.bootstrap.css > static/css/sfomuseum.org.min.css
