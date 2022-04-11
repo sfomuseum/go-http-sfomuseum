@@ -15,6 +15,9 @@ window.addEventListener("load", function load(event){
     var loop = document.getElementById("navbar-search-collection-loop");
     var form = document.getElementById("navbar-search-collection-mobile");
 
+    console.log("LOOP", loop);
+    console.log("FORM", form);
+    
     if ((loop) && (form)){
 
         loop.onclick = function(){
