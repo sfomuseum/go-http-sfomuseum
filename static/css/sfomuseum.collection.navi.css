@@ -1,3 +1,5 @@
+/* see also: javascript/sfomuseum.collection.navi.init.js */
+	
 #navbar-search-collection-loop {
     display:none !important;
 }
@@ -37,7 +39,7 @@
         display:inline-block !important;
     }
 
-    #navbar-search-form-dropdown {
+    #navbar-search-collection-form-dropdown {
         display: none !important;
     }
 }

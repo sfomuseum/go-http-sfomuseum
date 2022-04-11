@@ -1,3 +1,5 @@
+/* see also: css/sfomuseum.collection.navi.css */
+
 window.addEventListener("load", function load(event){
 
     // START OF remove CSS triggers to make mobile menu expand/collapse                                                                                     
@@ -15,9 +17,6 @@ window.addEventListener("load", function load(event){
     var loop = document.getElementById("navbar-search-collection-loop");
     var form = document.getElementById("navbar-search-collection-mobile");
 
-    console.log("LOOP", loop);
-    console.log("FORM", form);
-    
     if ((loop) && (form)){
 
         loop.onclick = function(){
