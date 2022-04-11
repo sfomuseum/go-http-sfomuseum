@@ -1,0 +1,53 @@
+#navbar-search-collection-loop {
+    display:none !important;
+}
+
+#navbar-search-collection-mobile {
+    background-color:#a0915e;
+    padding:1rem;
+    display:none;
+}
+
+#navbar-search-collection-mobile input{
+    border-radius: 0px !important;
+    border: none !important;
+    padding: .5rem;
+}
+
+#navbar-search-collection-mobile-loop {
+    display:inline-block;
+    border:1px solid #fff;
+    background-color:#fff;
+    padding:.25rem;
+    padding-top:.5rem;
+    padding-left:.5rem;
+}
+
+@media (max-width: 1000px) {
+
+    #navbar-toggler-collection {
+        position: absolute !important;
+        right: 0px;
+        top: 5px;
+    }
+
+    #navbar-search-collection-loop {
+        position: relative !important;
+        right: 48px !important;
+        display:inline-block !important;
+    }
+
+    #navbar-search-form-dropdown {
+        display: none !important;
+    }
+}
+
+/* CSS triggers to make bootstrap hamburgers work if JS is disabled */
+/* These triggers are removed 
+@media (max-width: 975px) {
+
+    #navbar-container-collection:hover  #navbar-collection-content {
+        display:block !important;
+    }
+
+}
