@@ -200,8 +200,8 @@ func Walk(v IVisitor, n INode) {
 		}
 
 		if n.Methods != nil {
-			for i := 0; i < len(n.Definitions); i++ {
-				Walk(v, &n.Definitions[i])
+			for i := 0; i < len(n.Methods); i++ {
+				Walk(v, n.Methods[i])
 			}
 		}
 	case *LiteralExpr:
@@ -266,9 +266,6 @@ func Walk(v IVisitor, n INode) {
 	case *CallExpr:
 		Walk(v, &n.Args)
 		Walk(v, n.X)
-	case *OptChainExpr:
-		Walk(v, n.X)
-		Walk(v, n.Y)
 	case *UnaryExpr:
 		Walk(v, n.X)
 	case *BinaryExpr:

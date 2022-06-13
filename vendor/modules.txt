@@ -2,13 +2,13 @@
 ## explicit
 github.com/aaronland/go-http-bootstrap
 github.com/aaronland/go-http-bootstrap/static
-# github.com/aaronland/go-http-rewrite v0.0.7
+# github.com/aaronland/go-http-rewrite v1.0.0
 ## explicit
 github.com/aaronland/go-http-rewrite
-# github.com/aaronland/go-http-server v0.1.0
+# github.com/aaronland/go-http-server v1.0.0
 ## explicit
 github.com/aaronland/go-http-server
-# github.com/aaronland/go-roster v0.0.2
+# github.com/aaronland/go-roster v1.0.0
 github.com/aaronland/go-roster
 # github.com/akrylysov/algnhsa v0.12.1
 github.com/akrylysov/algnhsa
@@ -21,17 +21,17 @@ github.com/aws/aws-lambda-go/lambdacontext
 # github.com/sfomuseum/go-flags v0.8.2
 ## explicit
 github.com/sfomuseum/go-flags/flagset
-# github.com/tdewolff/minify/v2 v2.10.0
+# github.com/tdewolff/minify/v2 v2.11.9
 ## explicit
 github.com/tdewolff/minify/v2
 github.com/tdewolff/minify/v2/css
 github.com/tdewolff/minify/v2/js
-# github.com/tdewolff/parse/v2 v2.5.27
+# github.com/tdewolff/parse/v2 v2.5.33
 github.com/tdewolff/parse/v2
 github.com/tdewolff/parse/v2/buffer
 github.com/tdewolff/parse/v2/css
 github.com/tdewolff/parse/v2/js
 github.com/tdewolff/parse/v2/strconv
-# golang.org/x/net v0.0.0-20210525063256-abc453219eb5
+# golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4
 golang.org/x/net/html
 golang.org/x/net/html/atom

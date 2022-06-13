@@ -135,8 +135,9 @@ type Scope struct {
 	Declared       VarArray // Link in Var are always nil
 	Undeclared     VarArray
 	VarDecls       []*VarDecl
-	NumForDeclared uint16 // offset into Declared to mark variables used in for statements
-	NumArguments   uint16 // offset into Undeclared to mark variables used in arguments
+	NumForDecls    uint16 // offset into Declared to mark variables used in for statements
+	NumFuncArgs    uint16 // offset into Declared to mark variables used in function arguments
+	NumArgUses     uint16 // offset into Undeclared to mark variables used in arguments
 	IsGlobalOrFunc bool
 	HasWith        bool
 }
@@ -181,12 +182,12 @@ func (s *Scope) Declare(decl DeclType, name []byte) (*Var, bool) {
 	var v *Var
 	// reuse variable if previously used, as in:  a;var a
 	if decl != ArgumentDecl { // in case of function f(a=b,b), where the first b is different from the second
-		for i, uv := range s.Undeclared[s.NumArguments:] {
+		for i, uv := range s.Undeclared[s.NumArgUses:] {
 			// no need to evaluate v.Link as v.Data stays the same and Link is nil in the active scope
 			if 0 < uv.Uses && uv.Decl == NoDecl && bytes.Equal(name, uv.Data) {
 				// must be NoDecl so that it can't be a var declaration that has been added
 				v = uv
-				s.Undeclared = append(s.Undeclared[:int(s.NumArguments)+i], s.Undeclared[int(s.NumArguments)+i+1:]...)
+				s.Undeclared = append(s.Undeclared[:int(s.NumArgUses)+i], s.Undeclared[int(s.NumArgUses)+i+1:]...)
 				break
 			}
 		}
@@ -228,7 +229,7 @@ func (s *Scope) findDeclared(name []byte, skipForDeclared bool) *Var {
 	start := 0
 	if skipForDeclared {
 		// we skip the for initializer for declarations (only has effect for let/const)
-		start = int(s.NumForDeclared)
+		start = int(s.NumForDecls)
 	}
 	// reverse order to find the inner let first in `for(let a in []){let a; {a}}`
 	for i := len(s.Declared) - 1; start <= i; i-- {
@@ -265,13 +266,14 @@ func (s *Scope) AddUndeclared(v *Var) {
 
 // MarkForStmt marks the declared variables in current scope as for statement initializer to distinguish from declarations in body.
 func (s *Scope) MarkForStmt() {
-	s.NumForDeclared = uint16(len(s.Declared))
-	s.MarkArguments() // ensures for different b's in for(var a in b){let b}
+	s.NumForDecls = uint16(len(s.Declared))
+	s.NumArgUses = uint16(len(s.Undeclared)) // ensures for different b's in for(var a in b){let b}
 }
 
-// MarkArguments marks the undeclared variables in the current scope as function arguments. It ensures different b's in `function f(a=b){var b}`.
-func (s *Scope) MarkArguments() {
-	s.NumArguments = uint16(len(s.Undeclared))
+// MarkFuncArgs marks the declared/undeclared variables in the current scope as function arguments.
+func (s *Scope) MarkFuncArgs() {
+	s.NumFuncArgs = uint16(len(s.Declared))
+	s.NumArgUses = uint16(len(s.Undeclared)) // ensures different b's in `function f(a=b){var b}`.
 }
 
 // HoistUndeclared copies all undeclared variables of the current scope to the parent scope.
@@ -1650,16 +1652,20 @@ func (n TemplatePart) JS() string {
 
 // TemplateExpr is a template literal or member/call expression, super property, or optional chain with template literal.
 type TemplateExpr struct {
-	Tag  IExpr // can be nil
-	List []TemplatePart
-	Tail []byte
-	Prec OpPrec
+	Tag      IExpr // can be nil
+	List     []TemplatePart
+	Tail     []byte
+	Prec     OpPrec
+	Optional bool
 }
 
 func (n TemplateExpr) String() string {
 	s := ""
 	if n.Tag != nil {
 		s += n.Tag.String()
+		if n.Optional {
+			s += "?."
+		}
 	}
 	for _, item := range n.List {
 		s += item.String()
@@ -1672,6 +1678,9 @@ func (n TemplateExpr) JS() string {
 	s := ""
 	if n.Tag != nil {
 		s += n.Tag.JS()
+		if n.Optional {
+			s += "?."
+		}
 	}
 	for _, item := range n.List {
 		s += item.JS()
@@ -1695,33 +1704,47 @@ func (n GroupExpr) JS() string {
 
 // IndexExpr is a member/call expression, super property, or optional chain with an index expression.
 type IndexExpr struct {
-	X    IExpr
-	Y    IExpr
-	Prec OpPrec
+	X        IExpr
+	Y        IExpr
+	Prec     OpPrec
+	Optional bool
 }
 
 func (n IndexExpr) String() string {
+	if n.Optional {
+		return "(" + n.X.String() + "?.[" + n.Y.String() + "])"
+	}
 	return "(" + n.X.String() + "[" + n.Y.String() + "])"
 }
 
 // JS converts the node back to valid JavaScript
 func (n IndexExpr) JS() string {
+	if n.Optional {
+		return n.X.JS() + "?.[" + n.Y.JS() + "]"
+	}
 	return n.X.JS() + "[" + n.Y.JS() + "]"
 }
 
 // DotExpr is a member/call expression, super property, or optional chain with a dot expression.
 type DotExpr struct {
-	X    IExpr
-	Y    LiteralExpr
-	Prec OpPrec
+	X        IExpr
+	Y        LiteralExpr
+	Prec     OpPrec
+	Optional bool
 }
 
 func (n DotExpr) String() string {
+	if n.Optional {
+		return "(" + n.X.String() + "?." + n.Y.String() + ")"
+	}
 	return "(" + n.X.String() + "." + n.Y.String() + ")"
 }
 
 // JS converts the node back to valid JavaScript
 func (n DotExpr) JS() string {
+	if n.Optional {
+		return n.X.JS() + "?." + n.Y.JS()
+	}
 	return n.X.JS() + "." + n.Y.JS()
 }
 
@@ -1826,48 +1849,24 @@ func (n NewExpr) JS() string {
 
 // CallExpr is a call expression.
 type CallExpr struct {
-	X    IExpr
-	Args Args
+	X        IExpr
+	Args     Args
+	Optional bool
 }
 
 func (n CallExpr) String() string {
+	if n.Optional {
+		return "(" + n.X.String() + "?." + n.Args.String() + ")"
+	}
 	return "(" + n.X.String() + n.Args.String() + ")"
 }
 
 // JS converts the node back to valid JavaScript
 func (n CallExpr) JS() string {
+	if n.Optional {
+		return n.X.String() + "?.(" + n.Args.JS() + ")"
+	}
 	return n.X.JS() + "(" + n.Args.JS() + ")"
-}
-
-// OptChainExpr is an optional chain.
-type OptChainExpr struct {
-	X IExpr
-	Y IExpr // can be CallExpr, IndexExpr, LiteralExpr, or TemplateExpr
-}
-
-func (n OptChainExpr) String() string {
-	s := "(" + n.X.String() + "?."
-	switch y := n.Y.(type) {
-	case *CallExpr:
-		return s + y.Args.String() + ")"
-	case *IndexExpr:
-		return s + "[" + y.Y.String() + "])"
-	default:
-		return s + y.String() + ")"
-	}
-}
-
-// JS converts the node back to valid JavaScript
-func (n OptChainExpr) JS() string {
-	s := n.X.String() + "?."
-	switch y := n.Y.(type) {
-	case *CallExpr:
-		return s + y.Args.JS() + ")"
-	case *IndexExpr:
-		return s + "[" + y.Y.JS() + "])"
-	default:
-		return s + y.JS()
-	}
 }
 
 // UnaryExpr is an update or unary expression.
@@ -2030,7 +2029,6 @@ func (n NewTargetExpr) exprNode()  {}
 func (n ImportMetaExpr) exprNode() {}
 func (n NewExpr) exprNode()        {}
 func (n CallExpr) exprNode()       {}
-func (n OptChainExpr) exprNode()   {}
 func (n UnaryExpr) exprNode()      {}
 func (n BinaryExpr) exprNode()     {}
 func (n CondExpr) exprNode()       {}
