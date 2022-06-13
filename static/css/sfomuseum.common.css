@@ -325,5 +325,10 @@ body {
     border: 1px solid #8a741d !important;
 }
 
+/* The magnifying glass in the collapsed SFOM search window; this selector was derived using the Firefox developer console */
+
+.to-lg\:mt-1 svg {
+	margin-left: 1rem !important;
+}
 
 /* media queries are in sfomuseum.common.media.css */
