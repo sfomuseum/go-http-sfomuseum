@@ -93,11 +93,6 @@ window.Drupal = {
 
 // js_J4lAocQOE0MG-pYudi5Xv0k0kjsq69AV9GOSU4WkrX0.pruned.js
 
-
-'use strict';
-
-"use strict";
-
 /* necessary for mobile menu */
 
 (function ($, Drupal) {
@@ -131,8 +126,6 @@ window.Drupal = {
 
 (function ($, Drupal) {
 
-  "use strict";
-
   Drupal.behaviors.search = {
     attach: function attach(context) {
 
@@ -162,8 +155,6 @@ window.Drupal = {
 */
 
 (function ($, Drupal, drupalSettings) {
-
-    'use strict';
 
     Drupal.behaviors.superfish = {
         attach: function (context, drupalSettings) {
