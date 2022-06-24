@@ -3,7 +3,7 @@ debug:
 	@make js
 	go run -mod vendor cmd/example/main.go
 
-local-scanner:
+local-scan:
 	/usr/local/sfomuseum/bin/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=go-http-sfomuseum -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$(TOKEN)
 
 lambda:
