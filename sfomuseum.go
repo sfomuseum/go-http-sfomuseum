@@ -12,6 +12,9 @@ import (
 	"strings"
 )
 
+// INCLUDE_BOOTSTRAP is a boolean flag indicating whether this package should load Bootstrap assets. Default is true.
+var INCLUDE_BOOTSTRAP = true
+
 // SFOMuseumOptions provides a list of JavaScript and CSS link to include with HTML output.
 type SFOMuseumOptions struct {
 	JS  []string
@@ -47,13 +50,21 @@ func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions,
 	// first so that /css/sfomuseum.org.bootstrap.css follows it and applies
 	// any necessary fixes for layout issues.
 
-	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
+	var handler http.Handler
 
-	bootstrap_opts.JS = []string{
-		"/javascript/bootstrap.bundle.min.js",
+	if INCLUDE_BOOTSTRAP {
+
+		bootstrap_opts := bootstrap.DefaultBootstrapOptions()
+
+		bootstrap_opts.JS = []string{
+			"/javascript/bootstrap.bundle.min.js",
+		}
+
+		handler = bootstrap.AppendResourcesHandler(next, bootstrap_opts)
+
+	} else {
+		handler = next
 	}
-
-	handler := bootstrap.AppendResourcesHandler(next, bootstrap_opts)
 
 	js := opts.JS
 	css := opts.CSS
@@ -117,10 +128,13 @@ func AppendAssetHandlers(mux *http.ServeMux) error {
 // Append all the files in the net/http FS instance containing the embedded SFOMuseum assets to an *http.ServeMux instance ensuring that all URLs are prepended with prefix.
 func AppendAssetHandlersWithPrefix(mux *http.ServeMux, prefix string) error {
 
-	err := bootstrap.AppendAssetHandlersWithPrefix(mux, prefix)
+	if INCLUDE_BOOTSTRAP {
 
-	if err != nil {
-		return fmt.Errorf("Failed to append Bootstrap asset handlers, %v", err)
+		err := bootstrap.AppendAssetHandlersWithPrefix(mux, prefix)
+
+		if err != nil {
+			return fmt.Errorf("Failed to append Bootstrap asset handlers, %v", err)
+		}
 	}
 
 	asset_handler, err := AssetsHandlerWithPrefix(prefix)

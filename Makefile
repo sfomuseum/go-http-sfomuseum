@@ -1,3 +1,6 @@
+vuln:
+	govulncheck ./...
+
 debug:
 	@make css
 	@make js
