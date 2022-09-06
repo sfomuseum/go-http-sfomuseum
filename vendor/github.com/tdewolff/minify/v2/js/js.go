@@ -18,9 +18,6 @@ const (
 	iterationBlock
 )
 
-// DefaultMinifier is the default minifier.
-var DefaultMinifier = &Minifier{}
-
 // Minifier is a JS minifier.
 type Minifier struct {
 	Precision           int // number of significant digits
@@ -31,7 +28,7 @@ type Minifier struct {
 
 // Minify minifies JS data, it reads from r and writes to w.
 func Minify(m *minify.M, w io.Writer, r io.Reader, params map[string]string) error {
-	return DefaultMinifier.Minify(m, w, r, params)
+	return (&Minifier{}).Minify(m, w, r, params)
 }
 
 // Minify minifies JS data, it reads from r and writes to w.
@@ -541,7 +538,7 @@ func (m *jsMinifier) minifyVarDecl(decl *js.VarDecl, onlyDefines bool) {
 			}
 		}
 	} else {
-		if decl.TokenType == js.VarToken {
+		if decl.TokenType == js.VarToken && len(decl.List) <= 10000 {
 			// move single var decls forward and order for GZIP optimization
 			start := 0
 			if _, ok := decl.List[0].Binding.(*js.Var); !ok {
@@ -738,19 +735,26 @@ func (m *jsMinifier) minifyClassDecl(decl *js.ClassDecl) {
 	}
 	m.write(openBraceBytes)
 	m.needsSemicolon = false
-	for _, item := range decl.Definitions {
+	for _, item := range decl.List {
 		m.writeSemicolon()
-		m.minifyPropertyName(item.Name)
-		if item.Init != nil {
-			m.write(equalBytes)
-			m.minifyExpr(item.Init, js.OpAssign)
-		}
-		m.requireSemicolon()
-	}
-	if 0 < len(decl.Methods) {
-		m.writeSemicolon()
-		for _, item := range decl.Methods {
-			m.minifyMethodDecl(item)
+		if item.StaticBlock != nil {
+			m.write(staticBytes)
+			m.minifyBlockStmt(item.StaticBlock)
+		} else if item.Method != nil {
+			m.minifyMethodDecl(item.Method)
+		} else {
+			if item.Static {
+				m.write(staticBytes)
+				if !item.Name.IsComputed() && item.Name.Literal.TokenType == js.IdentifierToken {
+					m.write(spaceBytes)
+				}
+			}
+			m.minifyPropertyName(item.Name)
+			if item.Init != nil {
+				m.write(equalBytes)
+				m.minifyExpr(item.Init, js.OpAssign)
+			}
+			m.requireSemicolon()
 		}
 	}
 	m.write(closeBraceBytes)
@@ -1233,25 +1237,31 @@ func (m *jsMinifier) minifyExpr(i js.IExpr, prec js.OpPrec) {
 		} else if m.expectExpr == expectExprStmt {
 			m.write(notBytes)
 		}
-		parentInFor := m.inFor
-		m.inFor = false
+		parentInFor, parentGroupedStmt := m.inFor, m.groupedStmt
+		m.inFor, m.groupedStmt = false, false
 		m.minifyFuncDecl(expr, true)
-		m.inFor = parentInFor
+		m.inFor, m.groupedStmt = parentInFor, parentGroupedStmt
 		if grouped {
 			m.write(closeParenBytes)
 		}
 	case *js.ArrowFunc:
+		parentGroupedStmt := m.groupedStmt
+		m.groupedStmt = false
 		m.minifyArrowFunc(expr)
+		m.groupedStmt = parentGroupedStmt
 	case *js.MethodDecl:
+		parentGroupedStmt := m.groupedStmt
+		m.groupedStmt = false
 		m.minifyMethodDecl(expr) // only happens in object literal
+		m.groupedStmt = parentGroupedStmt
 	case *js.ClassDecl:
 		if m.expectExpr == expectExprStmt {
 			m.write(notBytes)
 		}
-		parentInFor := m.inFor
-		m.inFor = false
+		parentInFor, parentGroupedStmt := m.inFor, m.groupedStmt
+		m.inFor, m.groupedStmt = false, false
 		m.minifyClassDecl(expr)
-		m.inFor = parentInFor
+		m.inFor, m.groupedStmt = parentInFor, parentGroupedStmt
 	case *js.CommaExpr:
 		for i, item := range expr.List {
 			if i != 0 {

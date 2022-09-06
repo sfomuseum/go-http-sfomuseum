@@ -1,11 +1,19 @@
 module github.com/sfomuseum/go-http-sfomuseum
 
-go 1.16
+go 1.19
 
 require (
 	github.com/aaronland/go-http-bootstrap v0.1.0
 	github.com/aaronland/go-http-rewrite v1.0.0
 	github.com/aaronland/go-http-server v1.0.0
-	github.com/sfomuseum/go-flags v0.8.2
-	github.com/tdewolff/minify/v2 v2.11.9
+	github.com/sfomuseum/go-flags v0.8.3
+	github.com/tdewolff/minify/v2 v2.12.1
+)
+
+require (
+	github.com/aaronland/go-roster v1.0.0 // indirect
+	github.com/akrylysov/algnhsa v0.12.1 // indirect
+	github.com/aws/aws-lambda-go v1.9.0 // indirect
+	github.com/tdewolff/parse/v2 v2.6.3 // indirect
+	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4 // indirect
 )
