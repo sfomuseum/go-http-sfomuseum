@@ -60,24 +60,31 @@ func AppendResourcesHandlerWithPrefix(next http.Handler, opts *SFOMuseumOptions,
 			"/javascript/bootstrap.bundle.min.js",
 		}
 
-		handler = bootstrap.AppendResourcesHandler(next, bootstrap_opts)
+		handler = bootstrap.AppendResourcesHandlerWithPrefix(next, bootstrap_opts, prefix)
 
 	} else {
 		handler = next
 	}
 
-	js := opts.JS
-	css := opts.CSS
+	js := make([]string, len(opts.JS))
+	css := make([]string, len(opts.CSS))
 
-	if prefix != "" {
+	for i, path := range opts.JS {
 
-		for i, path := range js {
-			js[i] = appendPrefix(prefix, path)
+		if prefix != "" {
+			path = appendPrefix(prefix, path)
 		}
 
-		for i, path := range css {
-			css[i] = appendPrefix(prefix, path)
+		js[i] = path
+	}
+
+	for i, path := range opts.CSS {
+
+		if prefix != "" {
+			path = appendPrefix(prefix, path)
 		}
+
+		css[i] = path
 	}
 
 	ext_opts := &rewrite.AppendResourcesOptions{
