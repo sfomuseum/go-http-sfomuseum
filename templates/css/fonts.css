@@ -1,0 +1,56 @@
+{{ define "fonts" }}
+@font-face {
+ font-family:cartogothic;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.eot) !important;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.eot#iefix)format('embedded-opentype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.woff)format('woff'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.ttf)format('truetype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.svg#cartogothic_stdregular)format('svg') !important;
+ font-weight:400;
+ font-style:normal
+}
+
+@font-face {
+ font-family:cartogothic;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-italic-webfont.eot) !important;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-italic-webfont.eot#iefix)format('embedded-opentype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-italic-webfont.woff)format('woff'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-italic-webfont.ttf)format('truetype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-italic-webfont.svg#cartogothic_stditalic)format('svg') !important;
+ font-weight:400;
+ font-style:italic
+}
+
+@font-face {
+ font-family:cartogothic;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bold-webfont.eot) !important;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bold-webfont.eot#iefix)format('embedded-opentype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bold-webfont.woff)format('woff'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bold-webfont.ttf)format('truetype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bold-webfont.svg#cartogothic_stdbold)format('svg') !important;
+ font-weight:700;
+ font-style:normal
+}
+
+@font-face {
+ font-family:cartogothic;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bolditalic-webfont.eot) !important;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bolditalic-webfont.eot#iefix)format('embedded-opentype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bolditalic-webfont.woff)format('woff'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bolditalic-webfont.ttf)format('truetype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-bolditalic-webfont.svg#cartogothic_stdbold_italic)format('svg') !important;
+ font-weight:700;
+ font-style:italic
+}
+
+@font-face {
+ font-family:cartogothic_regular;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.eot) !important;
+ src:url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.eot#iefix)format('embedded-opentype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.woff)format('woff'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.ttf)format('truetype'),
+ url({{ if (IsAvailable "URIPrefix" . ) }}{{ .URIPrefix }}{{ end }}/fonts/cartogothicstd-book-webfont.svg#cartogothic_stdregular)format('svg') !important;
+ font-weight:400;
+ font-style:normal
+} 
+{{ end }}
