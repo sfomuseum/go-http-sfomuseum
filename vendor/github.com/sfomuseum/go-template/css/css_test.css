@@ -1,0 +1,3 @@
+{{ define "test"}}
+body { background-color: {{ if (IsAvailable "BackgroundColor" .) }}{{ .BackgroundColor }}{{ else }}#000{{ end }}; }
+{{ end }}
