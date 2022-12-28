@@ -971,9 +971,14 @@ func minifyString(b []byte, allowTemplate bool) []byte {
 	b[len(b)-1] = quote
 
 	// strip unnecessary escapes
+	return replaceEscapes(b, quote, 1, 1)
+}
+
+func replaceEscapes(b []byte, quote byte, prefix, suffix int) []byte {
+	// strip unnecessary escapes
 	j := 0
 	start := 0
-	for i := 1; i < len(b)-1; i++ {
+	for i := prefix; i < len(b)-suffix; i++ {
 		if c := b[i]; c == '\\' {
 			c = b[i+1]
 			if c == quote || c == '\\' || c == 'u' || c == '0' && (i+2 == len(b)-1 || b[i+2] < '0' || '7' < b[i+2]) || quote != '`' && (c == 'n' || c == 'r') {
@@ -1055,7 +1060,7 @@ func minifyString(b []byte, allowTemplate bool) []byte {
 			}
 			start = i + n
 			i += n - 1
-		} else if c == quote || c == '$' && quote == '`' {
+		} else if c == quote || c == '$' && quote == '`' && (i+1 < len(b) && b[i+1] == '{' || i+2 < len(b) && b[i+1] == '\\' && b[i+2] == '{') {
 			// may not be escaped properly when changing quotes
 			if j < start {
 				// avoid append
@@ -1066,7 +1071,7 @@ func minifyString(b []byte, allowTemplate bool) []byte {
 			} else {
 				b = append(append(b[:i], '\\'), b[i:]...)
 				i++
-				b[i] = quote // was overwritten above
+				b[i] = c // was overwritten above
 			}
 		} else if c == '<' && 9 <= len(b)-1-i {
 			if b[i+1] == '\\' && 10 <= len(b)-1-i && bytes.Equal(b[i+2:i+10], []byte("/script>")) {
