@@ -60,6 +60,12 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 	return opts
 }
 
+func (opts *SFOMuseumOptions) EnableCollectionNavi() {
+
+	opts.CSS = append(opts.CSS, "/css/sfomuseum.collection.navi.css")
+	opts.JS = append(opts.JS, "/javascript/sfomuseum.collection.navi.init.js")
+}
+
 // AppendResourcesHandler will rewrite any HTML produced by previous handler to include the necessary markup to load SFOMuseum JavaScript and CSS files and related assets.
 func AppendResourcesHandler(next http.Handler, opts *SFOMuseumOptions) http.Handler {
 

@@ -6,7 +6,7 @@ vuln:
 debug:
 	@make css
 	@make js
-	go run -mod $(GOMOD) cmd/example/main.go -javascript-at-eof
+	go run -mod $(GOMOD) cmd/example/main.go -javascript-at-eof -rollup-assets
 
 local-scan:
 	/usr/local/sfomuseum/bin/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=go-http-sfomuseum -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$(TOKEN)

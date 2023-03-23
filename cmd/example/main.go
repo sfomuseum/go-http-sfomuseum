@@ -72,6 +72,8 @@ func main() {
 
 	sfomuseum_opts := sfomuseum.DefaultSFOMuseumOptions()
 
+	sfomuseum_opts.EnableCollectionNavi()
+
 	sfomuseum_opts.AppendJavaScriptAtEOF = *js_eof
 	sfomuseum_opts.RollupAssets = *rollup_assets
 
