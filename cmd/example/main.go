@@ -4,13 +4,14 @@ package main
 import (
 	"context"
 	"errors"
-	"github.com/aaronland/go-http-server"
-	"github.com/sfomuseum/go-flags/flagset"
-	"github.com/sfomuseum/go-http-sfomuseum"
-	"github.com/sfomuseum/go-http-sfomuseum/templates/html"
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/aaronland/go-http-server"
+	"github.com/sfomuseum/go-flags/flagset"
+	"github.com/sfomuseum/go-http-sfomuseum/v2"
+	"github.com/sfomuseum/go-http-sfomuseum/v2/templates/html"
 )
 
 // ExampleVars is struct containing template variables for the example website.
@@ -48,6 +49,9 @@ func main() {
 
 	server_uri := fs.String("server-uri", "http://localhost:8080", "A valid aaronland/go-http-server URI.")
 
+	js_eof := fs.Bool("javascript-at-eof", false, "Append JavaScript resources to end of HTML file.")
+	rollup_assets := fs.Bool("rollup-assets", false, "Rollup (minify and bundle) JavaScript and CSS assets.")
+
 	flagset.Parse(fs)
 
 	err := flagset.SetFlagsFromEnvVars(fs, "EXAMPLE")
@@ -66,13 +70,16 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	err = sfomuseum.AppendAssetHandlers(mux)
+	sfomuseum_opts := sfomuseum.DefaultSFOMuseumOptions()
+
+	sfomuseum_opts.AppendJavaScriptAtEOF = *js_eof
+	sfomuseum_opts.RollupAssets = *rollup_assets
+
+	err = sfomuseum.AppendAssetHandlers(mux, sfomuseum_opts)
 
 	if err != nil {
 		log.Fatalf("Failed to append SFOMuseum assets handler, %v", err)
 	}
-
-	sfomuseum_opts := sfomuseum.DefaultSFOMuseumOptions()
 
 	example_vars := &ExampleVars{
 		Title: "Example",

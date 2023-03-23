@@ -5,8 +5,8 @@ package html
 import (
 	"context"
 	"embed"
-	"html/template"
 	sfom_html "github.com/sfomuseum/go-template/html"
+	"html/template"
 )
 
 //go:embed *.html
