@@ -16,5 +16,5 @@ require (
 	github.com/akrylysov/algnhsa v0.12.1 // indirect
 	github.com/aws/aws-lambda-go v1.9.0 // indirect
 	github.com/tdewolff/parse/v2 v2.6.4 // indirect
-	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4 // indirect
+	golang.org/x/net v0.7.0 // indirect
 )
