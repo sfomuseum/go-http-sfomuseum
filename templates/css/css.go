@@ -3,8 +3,8 @@ package css
 import (
 	"context"
 	"embed"
+	sfom_css "github.com/sfomuseum/go-template/css"
 	"text/template"
-	sfom_css "github.com/sfomuseum/go-template/css"	
 )
 
 //go:embed *.css
