@@ -127,6 +127,20 @@ func AppendAssetHandlers(mux *http.ServeMux, opts *SFOMuseumOptions) error {
 		return aa_static.AppendStaticAssetHandlersWithPrefix(mux, static.FS, opts.Prefix)
 	}
 
+	others := []string{
+		"images",
+		"fonts",
+	}
+
+	for _, label := range others {
+
+		err := serveSubDir(mux, opts, label)
+
+		if err != nil {
+			return fmt.Errorf("Failed to serve %s sub directory, %w", label, err)
+		}
+	}
+
 	// START OF this should eventually be made a generic function in go-http-rollup
 
 	js_paths := make([]string, len(opts.JS))
