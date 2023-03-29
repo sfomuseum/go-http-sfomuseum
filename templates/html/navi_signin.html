@@ -1,5 +1,5 @@
 {{ define "navi_signin" }}
-<div class="header" style="background-color:#e0c877;">
+<div class="header" id="header-signin">
     <div class="container container-collection">
 	
 <nav class="navbar navbar-expand-lg" id="navbar-signin">
@@ -9,7 +9,14 @@
 	{{ if (IsAvailable "Account" .) }}
 	
 	{{ if .Account }}
+	{{ if (IsAvailable "GivenName" .Account) }}
 	<a class="navbar-brand" href="#" id="navbar-signin-logo" href="/">Hi, {{ .Account.GivenName }}</a>
+	{{ else if (IsAvailable "Name" .Account) }}
+	<a class="navbar-brand" href="#" id="navbar-signin-logo" href="/">Hi, {{ .Account.Name }}</a>
+	{{ else }}
+	Hi, Mystery User...
+	{{ end }}
+	
 	{{ else }}
 	<a class="navbar-brand" href="/signin/" id="navbar-signin-logo" href="/">Sign in</a>
 	{{ end }}

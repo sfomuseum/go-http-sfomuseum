@@ -35,6 +35,10 @@ body {
 	color: #616161 !important;
 }
 
+#header-signin {
+	background-color:#e0c877;
+}
+
 #pagination-previous-page {
     color:#8a741d !important;
 }
