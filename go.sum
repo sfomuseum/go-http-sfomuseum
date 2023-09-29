@@ -2,8 +2,8 @@ github.com/aaronland/go-http-bootstrap v0.4.0 h1:W+wXKbJvpT7eW3hjjLNXDfJy980+G/x
 github.com/aaronland/go-http-bootstrap v0.4.0/go.mod h1:v71tU1uyr8cSInBOV2vhnaV+l3bQ/yEtkPvchD1Ho64=
 github.com/aaronland/go-http-rewrite v1.1.0 h1:HhsltNyYRnIz2FR+qANZLx2ykiRuNuNK1JgPonKBLHQ=
 github.com/aaronland/go-http-rewrite v1.1.0/go.mod h1:iA9jQBureJrzO6fTzmRLS+fkbAI1Fna71iTb1hP8n3k=
-github.com/aaronland/go-http-server v1.0.1 h1:ULzPl1cinglgIDd1fRV02WFRUrG4Sv1LW06rGasLHqA=
-github.com/aaronland/go-http-server v1.0.1/go.mod h1:sg3+O9NJREN2YTChO5e2sdjmuhFJKTH39u+HV5V8Bpo=
+github.com/aaronland/go-http-server v1.2.0 h1:UOWlZwhW/Qb4CUG60zStmiwj1xweqOfZOA1J8jNIo2I=
+github.com/aaronland/go-http-server v1.2.0/go.mod h1:oADvZbSg6tH2aqZSRzVJW9vSJ+xVDEZqMqEjR76xeAs=
 github.com/aaronland/go-http-static v0.0.3 h1:0MnYXNwGVDCzre5YwinfPSdAFHInbBbmBv5hJtb/FX8=
 github.com/aaronland/go-http-static v0.0.3/go.mod h1:/s6lHGXq95ZR9nMJmE9slE4uMi92GP34CuG3f9xlfsY=
 github.com/aaronland/go-log/v2 v2.0.0 h1:lMoaVDHd4Etaz2+ibze3ReqvHHG68z2SpuxYXv12WlE=
@@ -25,8 +25,10 @@ github.com/sfomuseum/go-flags v0.10.0 h1:1OC1ACxpWMsl3XQ9OeNVMQj7Zi2CzufP3Rym3mP
 github.com/sfomuseum/go-flags v0.10.0/go.mod h1:VXOnnX1/yxQpX2yiwHaBV6aCmhtszQOL5bL1/nNo3co=
 github.com/sfomuseum/go-http-rollup v0.0.2 h1:cc0p0pppG1VJc6o3IUdkbocPnJedRzOqxWFNlz2mkYM=
 github.com/sfomuseum/go-http-rollup v0.0.2/go.mod h1:kxVTXkkaUsxVAMq3lFSNoILzKkv1L4ETuaQiDCQcBfI=
-github.com/sfomuseum/go-template v1.5.1 h1:al8tyls02fgDChAIJnGEBonaw8vMykjUuQn7Gi0Rx0M=
-github.com/sfomuseum/go-template v1.5.1/go.mod h1:JRpTSqjgYv6+PdkoVbX5GmuyCQqnRLd0Yk8LFvLb6/k=
+github.com/sfomuseum/go-template v1.8.0 h1:upXRQ+oeUbfz0KxH79ws/kS2gKF+y5pSXVEQOgvv6IM=
+github.com/sfomuseum/go-template v1.8.0/go.mod h1:el1YP8YUqKbSmQxnWxh7s8Z6HVNUzKUuNKtu5tvQ4aU=
+github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e h1:MRM5ITcdelLK2j1vwZ3Je0FKVCfqOLp5zO6trqMLYs0=
+github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e/go.mod h1:XV66xRDqSt+GTGFMVlhk3ULuV0y9ZmzeVGR4mloJI3M=
 github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
 github.com/stretchr/testify v1.7.2 h1:4jaiDzPyXQvSd7D0EjG45355tLlV3VOECpq10pLC+8s=
 github.com/tdewolff/minify/v2 v2.12.4 h1:kejsHQMM17n6/gwdw53qsi6lg0TGddZADVyQOz1KMdE=

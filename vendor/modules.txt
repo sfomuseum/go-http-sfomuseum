@@ -5,7 +5,7 @@ github.com/aaronland/go-http-bootstrap/static
 # github.com/aaronland/go-http-rewrite v1.1.0
 ## explicit; go 1.18
 github.com/aaronland/go-http-rewrite
-# github.com/aaronland/go-http-server v1.0.1
+# github.com/aaronland/go-http-server v1.2.0
 ## explicit; go 1.18
 github.com/aaronland/go-http-server
 # github.com/aaronland/go-http-static v0.0.3
@@ -33,11 +33,16 @@ github.com/sfomuseum/go-flags/flagset
 # github.com/sfomuseum/go-http-rollup v0.0.2
 ## explicit; go 1.20
 github.com/sfomuseum/go-http-rollup
-# github.com/sfomuseum/go-template v1.5.1
+# github.com/sfomuseum/go-template v1.8.0
 ## explicit; go 1.18
 github.com/sfomuseum/go-template/css
 github.com/sfomuseum/go-template/funcs
 github.com/sfomuseum/go-template/html
+# github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
+## explicit; go 1.13
+github.com/skip2/go-qrcode
+github.com/skip2/go-qrcode/bitset
+github.com/skip2/go-qrcode/reedsolomon
 # github.com/tdewolff/minify/v2 v2.12.4
 ## explicit; go 1.13
 github.com/tdewolff/minify/v2
