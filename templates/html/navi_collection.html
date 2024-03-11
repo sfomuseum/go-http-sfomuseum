@@ -1,56 +1,58 @@
 {{ define "navi_collection" }}
 <div class="header" id="navbar-search-collection-mobile">
-    <div class="container container-ollection">
-           <form class="flex form" action="{$cfg.abs_root_url}search/" id="navbar-search-form-dropdown-x" style="width:100%;">
+    <div class="container container-collection">
+           <form class="flex form" action="https://collection.sfomuseum.org/search/" id="navbar-search-form-dropdown-x" style="width:100%;">
 	   
 	   <div id="navbar-search-collection-mobile-loop">
 	   <svg class="svg-inline--fa fa-search fa-w-16 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="#a0915e" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
 	   </div>
 
- 	   <input class="form-control" type="search" name="q" placeholder="Search the Mills Field website" aria-label="Search"/>
+ 	   <input class="form-control" type="search" name="q" placeholder="Search the SFO Museum collection" aria-label="Search"/>
 
 	   </form>
     </div>
 </div>
-<div class="header" style="background-color:#cfb036;">
+<div class="header" id="navbar-search-collection">
     <div class="container container-collection">
 	
-<nav class="navbar navbar-expand-lg" id="navbar-collection">
+	<nav class="navbar navbar-expand-lg" id="navbar-collection">
 
-    <div class="container-fluid navbar-container-collection" id="navbar-container-collection">
+	    <div class="container-fluid navbar-container-collection" id="navbar-container-collection">
 
-	<a class="navbar-brand" href="https://collection.sfomuseum.org/" id="navbar-collection-logo" href="/">Collection</a>
+	    <a class="navbar-brand" id="navbar-collection-logo" href="https://collection.sfomuseum.org/">Collection
+	    </a>
 
-	<button class="navbar-toggler navbar-toggler-collection" id="navbar-toggler-collection" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collection-content" aria-controls="navbar-collection-content" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon">
 
-		<svg class="hamburger-open svg-inline--fa fa-bars fa-w-14 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""  style="font-size:1.4rem;"><path fill="#fff" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+	    	<button class="navbar-toggler navbar-toggler-collection" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collection-content" aria-controls="navbar-collection-content" aria-expanded="false" aria-label="Toggle navigation" id="navbar-toggler-collection">
+	    	<span class="navbar-toggler-icon">
 
-		<svg class="hamburger-close svg-inline--fa fa-times fa-w-11 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
-		
-	    </span>
+		      <svg class="hamburger-open svg-inline--fa fa-bars fa-w-14 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""  style="font-size:1.4rem;"><path fill="#fff" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+
+		      <svg class="hamburger-close svg-inline--fa fa-times fa-w-11 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+
+	    	      </span>
 	</button>
 
 	    <div style="display:inline-block; margin-right:1rem;" id="navbar-search-collection-loop">
-	    <a href="{$cfg.abs_root_url}search/" onclick="return false;"><svg class="svg-inline--fa fa-search fa-w-16 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="#fff" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></a>
+	    <a href="https://collection.sfomuseum.org/search/" onclick="return false;"><svg class="svg-inline--fa fa-search fa-w-16 fa-lg" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="#fff" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></a>
 	    </div>
-	
+
 	<div class="collapse navbar-collapse" id="navbar-collection-content">
 	    
 	    <ul class="navbar-nav mr-auto" id="navbar-nav-collection">
-      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214207/with-images/">Archive</a></li>
-      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214203/with-images/">Museum</a></li>
-      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/collections/1511214217/with-images/">Library</a></li>
-      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/recent/">Recent</a></li>
-      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/random/" title="Load a random object from the Aviation Collection. You can also load a random object by pressing shift-R on your keyboard">Random</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/exhibitions/onview/">On&nbsp;View</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/objects/recent/">Recently&nbsp;Acquired</a></li>
+      		<li class="nav-item"><a class="nav-link" href="https://collection.sfomuseum.org/random/" title="Load a random object from the Aviation Collection. You can also load a random object by pressing shift-R on your keyboard">Random&nbsp;Object</a></li>
+      		<li class="nav-item" id="navitem-collection-advanced-search"><a class="nav-link" href="https://collection.sfomuseum.org/search/advanced/">Advanced&nbsp;Search</a></li>
 	    </ul>
-	    
-	    <form action="https://collection.sfomuseum.org/search/" class="navbar-search d-flex" id="navbar-search-collection-form-dropdown">
-		<input class="form-control me-2" type="search" placeholder="Search the collection" aria-label="Search" name="q" id="q">
-		<!-- <button class="btn" type="submit">Search</button> -->
-	    </form>
-	    
+
+
+           <form class="d-flex form-inline" action="https://collection.sfomuseum.org/search/" id="navbar-search-form-dropdown">
+ 	   <input class="form-control mr-sm-2" id="collection-search-dropdown" type="search" name="q" placeholder="Search the collection" aria-label="Search" style="width:30vw;"/>
+	   </form>
+
 	</div>
+
     </div>
 </nav>
 
