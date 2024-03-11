@@ -1,4 +1,7 @@
-GOMOD=readonly
+GOMOD=$(shell test -f "go.work" && echo "readonly" || echo "vendor")
+LDFLAGS=-s -w
+
+# https://github.com/tdewolff/minify
 MINIFY=minify
 
 vuln:
@@ -13,14 +16,17 @@ local-scan:
 	/usr/local/sfomuseum/bin/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=go-http-sfomuseum -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$(TOKEN)
 
 lambda:
-	if test -f main; then rm -f main; fi
-	if test -f example.zip; then rm -f example.zip; fi
-	GOOS=linux go build -mod $(GOMOD) -o main cmd/example/main.go
-	zip example.zip main
-	rm -f main
+	if test -f bootstrap; then rm -f bootstrap; fi
+	if test -f server.zip; then rm -f server.zip; fi
+	GOARCH=arm64 GOOS=linux go build -mod $(GOMOD) -ldflags="$(LDFLAGS)" -tags lambda.norpc -o bootstrap cmd/example/main.go
+	zip example.zip bootstrap
+	rm -f bootstrap
 
 docker:
 	docker build -t sfomuseum-sweater-server .	
+
+docker-run:
+	docker run -rm -it -p 8080:8080 sfomuseum-sweater-server
 
 # jf: https://github.com/aaronland/go-json-tools
 # copy/paste in to templates/html/common_footer.html
