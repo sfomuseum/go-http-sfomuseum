@@ -10,8 +10,8 @@ import (
 
 	"github.com/aaronland/go-http-server"
 	"github.com/sfomuseum/go-flags/flagset"
-	"github.com/sfomuseum/go-http-sfomuseum/v2"
-	"github.com/sfomuseum/go-http-sfomuseum/v2/templates/html"
+	"github.com/sfomuseum/go-http-sfomuseum/v3"
+	"github.com/sfomuseum/go-http-sfomuseum/v3/templates/html"
 )
 
 // ExampleVars is struct containing template variables for the example website.

@@ -11,7 +11,7 @@ import (
 	"github.com/aaronland/go-http-bootstrap"
 	aa_static "github.com/aaronland/go-http-static"
 	"github.com/sfomuseum/go-http-rollup"
-	"github.com/sfomuseum/go-http-sfomuseum/v2/static"
+	"github.com/sfomuseum/go-http-sfomuseum/v3/static"
 )
 
 // SFOMuseumOptions provides a list of JavaScript and CSS link to include with HTML output.
