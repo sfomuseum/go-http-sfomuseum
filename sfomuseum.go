@@ -2,9 +2,7 @@ package sfomuseum
 
 import (
 	"fmt"
-	"io"
 	"io/fs"
-	"log"
 	"net/http"
 	"net/url"
 	"path/filepath"
@@ -28,7 +26,6 @@ type SFOMuseumOptions struct {
 	// Rollup (minify and bundle) JavaScript and CSS assets.
 	RollupAssets bool
 	Prefix       string
-	Logger       *log.Logger
 	// By default the go-http-protomaps package will also include and reference Bootstrap.js resources using the aaronland/go-http-bootstrap package. If you want or need to disable this behaviour set this variable to false.
 	AppendBootstrapResources bool
 	// By default the go-http-protomaps package will also include and reference Bootstrap.js assets using the aaronland/go-http-bootstrap package. If you want or need to disable this behaviour set this variable to false.
@@ -37,8 +34,6 @@ type SFOMuseumOptions struct {
 
 // Return a *SFOMuseumOptions struct with default paths and URIs.
 func DefaultSFOMuseumOptions() *SFOMuseumOptions {
-
-	logger := log.New(io.Discard, "", 0)
 
 	bootstrap_opts := bootstrap.DefaultBootstrapOptions()
 
@@ -51,7 +46,6 @@ func DefaultSFOMuseumOptions() *SFOMuseumOptions {
 			"/javascript/sfomuseum.org.deps.min.js",
 			"/javascript/sfomuseum.org.min.js",
 		},
-		Logger:                   logger,
 		BootstrapOptions:         bootstrap_opts,
 		AppendBootstrapResources: true,
 		AppendBootstrapAssets:    true,
@@ -74,7 +68,6 @@ func AppendResourcesHandler(next http.Handler, opts *SFOMuseumOptions) http.Hand
 		opts.BootstrapOptions.AppendJavaScriptAtEOF = opts.AppendJavaScriptAtEOF
 		opts.BootstrapOptions.RollupAssets = opts.RollupAssets
 		opts.BootstrapOptions.Prefix = opts.Prefix
-		opts.BootstrapOptions.Logger = opts.Logger
 
 		next = bootstrap.AppendResourcesHandler(next, opts.BootstrapOptions)
 	}
@@ -114,7 +107,6 @@ func AppendAssetHandlers(mux *http.ServeMux, opts *SFOMuseumOptions) error {
 		opts.BootstrapOptions.AppendJavaScriptAtEOF = opts.AppendJavaScriptAtEOF
 		opts.BootstrapOptions.RollupAssets = opts.RollupAssets
 		opts.BootstrapOptions.Prefix = opts.Prefix
-		opts.BootstrapOptions.Logger = opts.Logger
 
 		err := bootstrap.AppendAssetHandlers(mux, opts.BootstrapOptions)
 
@@ -173,9 +165,8 @@ func AppendAssetHandlers(mux *http.ServeMux, opts *SFOMuseumOptions) error {
 		}
 
 		rollup_js_opts := &rollup.RollupJSHandlerOptions{
-			FS:     static.FS,
-			Paths:  rollup_js_paths,
-			Logger: opts.Logger,
+			FS:    static.FS,
+			Paths: rollup_js_paths,
 		}
 
 		rollup_js_handler, err := rollup.RollupJSHandler(rollup_js_opts)
@@ -220,9 +211,8 @@ func AppendAssetHandlers(mux *http.ServeMux, opts *SFOMuseumOptions) error {
 		}
 
 		rollup_css_opts := &rollup.RollupCSSHandlerOptions{
-			FS:     static.FS,
-			Paths:  rollup_css_paths,
-			Logger: opts.Logger,
+			FS:    static.FS,
+			Paths: rollup_css_paths,
 		}
 
 		rollup_css_handler, err := rollup.RollupCSSHandler(rollup_css_opts)
