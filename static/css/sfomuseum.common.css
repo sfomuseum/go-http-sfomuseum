@@ -329,6 +329,12 @@ body {
     border: 1px solid #8a741d !important;
 }
 
+/* This fixes the gap between the standard SFOM header/navi and any secondary header/navi elements */
+
+.sf-main .pin-t16 {
+    top: initial !important;
+}
+
 /* The magnifying glass in the collapsed SFOM search window; this selector was derived using the Firefox developer console */
 
 .to-lg\:mt-1 svg {
