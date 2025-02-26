@@ -1,6 +1,6 @@
 module github.com/sfomuseum/go-http-sfomuseum/v3
 
-go 1.22.4
+go 1.24.0
 
 require (
 	github.com/aaronland/go-http-bootstrap v0.5.0
