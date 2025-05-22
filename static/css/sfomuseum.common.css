@@ -1,3 +1,8 @@
+/* https://webkit.org/blog/16967/two-lines-of-cross-document-view-transitions-code-you-can-use-on-every-website-today/ */
+/* https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API */
+@view-transition {
+  navigation: auto;
+}
 
 body {
     background-color: #fff !important;
