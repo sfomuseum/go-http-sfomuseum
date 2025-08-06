@@ -3,7 +3,6 @@ package static
 import (
 	"fmt"
 	"io/fs"
-	_ "log"
 	"net/http"
 	"strings"
 
