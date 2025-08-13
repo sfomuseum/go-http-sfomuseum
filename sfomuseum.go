@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/aaronland/go-http-bootstrap"
-	aa_static "github.com/aaronland/go-http-static"
-	"github.com/sfomuseum/go-http-rollup"
+	aa_static "github.com/aaronland/go-http/v3/static"
+	"github.com/aaronland/go-http/v3/rollup"
 	"github.com/sfomuseum/go-http-sfomuseum/v3/static"
 )
 

@@ -2,11 +2,14 @@ package parse
 
 import (
 	"encoding/binary"
+	"errors"
 	"fmt"
 	"io"
 	"math"
 	"os"
 )
+
+const PageSize = 4096
 
 // BinaryReader is a binary big endian file format reader.
 type BinaryReader struct {
@@ -50,6 +53,11 @@ func (r *BinaryReader) Pos() uint32 {
 // Len returns the remaining length of the buffer.
 func (r *BinaryReader) Len() uint32 {
 	return uint32(len(r.buf)) - r.pos
+}
+
+// SetLen sets the remaining length of the underlying buffer.
+func (r *BinaryReader) SetLen(n uint32) {
+	r.buf = r.buf[: r.pos+n : r.pos+n]
 }
 
 // EOF returns true if we reached the end-of-file.
@@ -107,6 +115,18 @@ func (r *BinaryReader) ReadUint16() uint16 {
 	return r.Endianness.Uint16(b)
 }
 
+// ReadUint24 reads a uint24 into a uint32.
+func (r *BinaryReader) ReadUint24() uint32 {
+	b := r.ReadBytes(3)
+	if b == nil {
+		return 0
+	} else if r.Endianness == binary.LittleEndian {
+		return uint32(b[0]) | uint32(b[1])<<8 | uint32(b[2])<<16
+	} else {
+		return uint32(b[2]) | uint32(b[1])<<8 | uint32(b[0])<<16
+	}
+}
+
 // ReadUint32 reads a uint32.
 func (r *BinaryReader) ReadUint32() uint32 {
 	b := r.ReadBytes(4)
@@ -125,22 +145,27 @@ func (r *BinaryReader) ReadUint64() uint64 {
 	return r.Endianness.Uint64(b)
 }
 
-// ReadInt8 reads a int8.
+// ReadInt8 reads an int8.
 func (r *BinaryReader) ReadInt8() int8 {
 	return int8(r.ReadByte())
 }
 
-// ReadInt16 reads a int16.
+// ReadInt16 reads an int16.
 func (r *BinaryReader) ReadInt16() int16 {
 	return int16(r.ReadUint16())
 }
 
-// ReadInt32 reads a int32.
+// ReadInt24 reads a int24 into an int32.
+func (r *BinaryReader) ReadInt24() int32 {
+	return int32(r.ReadUint24())
+}
+
+// ReadInt32 reads an int32.
 func (r *BinaryReader) ReadInt32() int32 {
 	return int32(r.ReadUint32())
 }
 
-// ReadInt64 reads a int64.
+// ReadInt64 reads an int64.
 func (r *BinaryReader) ReadInt64() int64 {
 	return int64(r.ReadUint64())
 }
@@ -330,14 +355,330 @@ func (r *BinaryFileReader) ReadInt64() int64 {
 	return int64(r.ReadUint64())
 }
 
+type IBinaryReader interface {
+	Close() error
+	Len() int
+	Bytes(int, int64) ([]byte, error)
+}
+
+type binaryReaderFile struct {
+	f    *os.File
+	size int64
+}
+
+func newBinaryReaderFile(filename string) (*binaryReaderFile, error) {
+	f, err := os.Open(filename)
+	if err != nil {
+		return nil, err
+	}
+	fi, err := f.Stat()
+	if err != nil {
+		f.Close()
+		return nil, err
+	}
+	return &binaryReaderFile{f, fi.Size()}, nil
+}
+
+// Close closes the reader.
+func (r *binaryReaderFile) Close() error {
+	return r.f.Close()
+}
+
+// Len returns the length of the underlying memory-mapped file.
+func (r *binaryReaderFile) Len() int {
+	return int(r.size)
+}
+
+func (r *binaryReaderFile) Bytes(n int, off int64) ([]byte, error) {
+	if _, err := r.f.Seek(off, 0); err != nil {
+		return nil, err
+	}
+
+	b := make([]byte, n)
+	m, err := r.f.Read(b)
+	if err != nil {
+		return nil, err
+	} else if m != n {
+		return nil, errors.New("file: could not read all bytes")
+	}
+	return b, nil
+}
+
+type binaryReaderBytes struct {
+	data []byte
+}
+
+func newBinaryReaderBytes(data []byte) *binaryReaderBytes {
+	return &binaryReaderBytes{data}
+}
+
+// Close closes the reader.
+func (r *binaryReaderBytes) Close() error {
+	return nil
+}
+
+// Len returns the length of the underlying memory-mapped file.
+func (r *binaryReaderBytes) Len() int {
+	return len(r.data)
+}
+
+func (r *binaryReaderBytes) Bytes(n int, off int64) ([]byte, error) {
+	if off < 0 || int64(len(r.data)) < off {
+		return nil, fmt.Errorf("bytes: invalid offset %d", off)
+	}
+	return r.data[off : off+int64(n) : off+int64(n)], nil
+}
+
+type binaryReaderReader struct {
+	r        io.Reader
+	n        int64
+	readerAt bool
+	seeker   bool
+}
+
+func newBinaryReaderReader(r io.Reader, n int64) *binaryReaderReader {
+	_, readerAt := r.(io.ReaderAt)
+	_, seeker := r.(io.Seeker)
+	return &binaryReaderReader{r, n, readerAt, seeker}
+}
+
+// Close closes the reader.
+func (r *binaryReaderReader) Close() error {
+	if closer, ok := r.r.(io.Closer); ok {
+		return closer.Close()
+	}
+	return nil
+}
+
+// Len returns the length of the underlying memory-mapped file.
+func (r *binaryReaderReader) Len() int {
+	return int(r.n)
+}
+
+func (r *binaryReaderReader) Bytes(n int, off int64) ([]byte, error) {
+	// seeker seems faster than readerAt by 10%
+	if r.seeker {
+		if _, err := r.r.(io.Seeker).Seek(off, 0); err != nil {
+			return nil, err
+		}
+
+		b := make([]byte, n)
+		m, err := r.r.Read(b)
+		if err != nil {
+			return nil, err
+		} else if m != n {
+			return nil, errors.New("file: could not read all bytes")
+		}
+		return b, nil
+	} else if r.readerAt {
+		b := make([]byte, n)
+		m, err := r.r.(io.ReaderAt).ReadAt(b, off)
+		if err != nil {
+			return nil, err
+		} else if m != n {
+			return nil, errors.New("file: could not read all bytes")
+		}
+		return b, nil
+	}
+	return nil, errors.New("io.Seeker and io.ReaderAt not implemented")
+}
+
+type BinaryReader2 struct {
+	f   IBinaryReader
+	pos int64
+	err error
+
+	Endian binary.ByteOrder
+}
+
+func NewBinaryReader2(f IBinaryReader) *BinaryReader2 {
+	return &BinaryReader2{
+		f:      f,
+		Endian: binary.BigEndian,
+	}
+}
+
+func NewBinaryReader2Reader(r io.Reader, n int64) (*BinaryReader2, error) {
+	_, isReaderAt := r.(io.ReaderAt)
+	_, isSeeker := r.(io.Seeker)
+
+	var f IBinaryReader
+	if isReaderAt || isSeeker {
+		f = newBinaryReaderReader(r, n)
+	} else {
+		b := make([]byte, n)
+		if _, err := io.ReadFull(r, b); err != nil {
+			return nil, err
+		}
+		f = newBinaryReaderBytes(b)
+	}
+	return NewBinaryReader2(f), nil
+}
+
+func NewBinaryReader2Bytes(data []byte) *BinaryReader2 {
+	f := newBinaryReaderBytes(data)
+	return NewBinaryReader2(f)
+}
+
+func NewBinaryReader2File(filename string) (*BinaryReader2, error) {
+	f, err := newBinaryReaderFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	return NewBinaryReader2(f), nil
+}
+
+func (r *BinaryReader2) Err() error {
+	return r.err
+}
+
+func (r *BinaryReader2) Close() error {
+	if err := r.f.Close(); err != nil {
+		return err
+	}
+	return r.err
+}
+
+// InPageCache returns true if the range is already in the page cache (for mmap).
+func (r *BinaryReader2) InPageCache(start, end int64) bool {
+	index := int64(r.Pos()) / PageSize
+	return start/PageSize == index && end/PageSize == index
+}
+
+// Free frees all previously read bytes, you cannot seek from before this position (for reader).
+func (r *BinaryReader2) Free() {
+}
+
+// Pos returns the reader's position.
+func (r *BinaryReader2) Pos() int64 {
+	return r.pos
+}
+
+// Len returns the remaining length of the buffer.
+func (r *BinaryReader2) Len() int {
+	return int(int64(r.f.Len()) - int64(r.pos))
+}
+
+func (r *BinaryReader2) Seek(pos int64) {
+	r.pos = pos
+}
+
+// Read complies with io.Reader.
+func (r *BinaryReader2) Read(b []byte) (int, error) {
+	data, err := r.f.Bytes(len(b), r.pos)
+	if err != nil && err != io.EOF {
+		return 0, err
+	}
+	n := copy(b, data)
+	r.pos += int64(len(b))
+	return n, err
+}
+
+// ReadAt complies with io.ReaderAt.
+func (r *BinaryReader2) ReadAt(b []byte, off int64) (int, error) {
+	data, err := r.f.Bytes(len(b), off)
+	if err != nil && err != io.EOF {
+		return 0, err
+	}
+	n := copy(b, data)
+	return n, err
+}
+
+// ReadBytes reads n bytes.
+func (r *BinaryReader2) ReadBytes(n int) []byte {
+	data, err := r.f.Bytes(n, r.pos)
+	if err != nil {
+		r.err = err
+		return nil
+	}
+	r.pos += int64(n)
+	return data
+}
+
+// ReadString reads a string of length n.
+func (r *BinaryReader2) ReadString(n int) string {
+	return string(r.ReadBytes(n))
+}
+
+// ReadByte reads a single byte.
+func (r *BinaryReader2) ReadByte() byte {
+	data := r.ReadBytes(1)
+	if data == nil {
+		return 0
+	}
+	return data[0]
+}
+
+// ReadUint8 reads a uint8.
+func (r *BinaryReader2) ReadUint8() uint8 {
+	return r.ReadByte()
+}
+
+// ReadUint16 reads a uint16.
+func (r *BinaryReader2) ReadUint16() uint16 {
+	data := r.ReadBytes(2)
+	if data == nil {
+		return 0
+	} else if r.Endian == binary.LittleEndian {
+		return uint16(data[1])<<8 | uint16(data[0])
+	}
+	return uint16(data[0])<<8 | uint16(data[1])
+}
+
+// ReadUint32 reads a uint32.
+func (r *BinaryReader2) ReadUint32() uint32 {
+	data := r.ReadBytes(4)
+	if data == nil {
+		return 0
+	} else if r.Endian == binary.LittleEndian {
+		return uint32(data[3])<<24 | uint32(data[2])<<16 | uint32(data[1])<<8 | uint32(data[0])
+	}
+	return uint32(data[0])<<24 | uint32(data[1])<<16 | uint32(data[2])<<8 | uint32(data[3])
+}
+
+// ReadUint64 reads a uint64.
+func (r *BinaryReader2) ReadUint64() uint64 {
+	data := r.ReadBytes(8)
+	if data == nil {
+		return 0
+	} else if r.Endian == binary.LittleEndian {
+		return uint64(data[7])<<56 | uint64(data[6])<<48 | uint64(data[5])<<40 | uint64(data[4])<<32 | uint64(data[3])<<24 | uint64(data[2])<<16 | uint64(data[1])<<8 | uint64(data[0])
+	}
+	return uint64(data[0])<<56 | uint64(data[1])<<48 | uint64(data[2])<<40 | uint64(data[3])<<32 | uint64(data[4])<<24 | uint64(data[5])<<16 | uint64(data[6])<<8 | uint64(data[7])
+}
+
+// ReadInt8 reads a int8.
+func (r *BinaryReader2) ReadInt8() int8 {
+	return int8(r.ReadByte())
+}
+
+// ReadInt16 reads a int16.
+func (r *BinaryReader2) ReadInt16() int16 {
+	return int16(r.ReadUint16())
+}
+
+// ReadInt32 reads a int32.
+func (r *BinaryReader2) ReadInt32() int32 {
+	return int32(r.ReadUint32())
+}
+
+// ReadInt64 reads a int64.
+func (r *BinaryReader2) ReadInt64() int64 {
+	return int64(r.ReadUint64())
+}
+
 // BinaryWriter is a big endian binary file format writer.
 type BinaryWriter struct {
-	buf []byte
+	buf    []byte
+	Endian binary.ByteOrder
 }
 
 // NewBinaryWriter returns a big endian binary file format writer.
 func NewBinaryWriter(buf []byte) *BinaryWriter {
-	return &BinaryWriter{buf}
+	return &BinaryWriter{
+		buf:    buf,
+		Endian: binary.BigEndian,
+	}
 }
 
 // Len returns the buffer's length in bytes.
@@ -380,21 +721,21 @@ func (w *BinaryWriter) WriteUint8(v uint8) {
 func (w *BinaryWriter) WriteUint16(v uint16) {
 	pos := len(w.buf)
 	w.buf = append(w.buf, make([]byte, 2)...)
-	binary.BigEndian.PutUint16(w.buf[pos:], v)
+	w.Endian.PutUint16(w.buf[pos:], v)
 }
 
 // WriteUint32 writes the given uint32 to the buffer.
 func (w *BinaryWriter) WriteUint32(v uint32) {
 	pos := len(w.buf)
 	w.buf = append(w.buf, make([]byte, 4)...)
-	binary.BigEndian.PutUint32(w.buf[pos:], v)
+	w.Endian.PutUint32(w.buf[pos:], v)
 }
 
 // WriteUint64 writes the given uint64 to the buffer.
 func (w *BinaryWriter) WriteUint64(v uint64) {
 	pos := len(w.buf)
 	w.buf = append(w.buf, make([]byte, 8)...)
-	binary.BigEndian.PutUint64(w.buf[pos:], v)
+	w.Endian.PutUint64(w.buf[pos:], v)
 }
 
 // WriteInt8 writes the given int8 to the buffer.

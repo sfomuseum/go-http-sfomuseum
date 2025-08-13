@@ -135,6 +135,10 @@ func (t Token) IsLengthPercentage() bool {
 
 // Minify minifies CSS data, it reads from r and writes to w.
 func (o *Minifier) Minify(m *minify.M, w io.Writer, r io.Reader, params map[string]string) error {
+	tmp := &Minifier{}
+	*tmp = *o
+	o = tmp
+
 	o.newPrecision = o.Precision
 	if o.newPrecision <= 0 || 15 < o.newPrecision {
 		o.newPrecision = 15 // minimum number of digits a double can represent exactly
@@ -176,7 +180,7 @@ func (c *cssMinifier) minifyGrammar() {
 
 				// write out the offending declaration (but save the semicolon)
 				vals := c.p.Values()
-				if len(vals) > 0 && vals[len(vals)-1].TokenType == css.SemicolonToken {
+				if 0 < len(vals) && vals[len(vals)-1].TokenType == css.SemicolonToken {
 					vals = vals[:len(vals)-1]
 					semicolonQueued = true
 				}
@@ -258,8 +262,6 @@ func (c *cssMinifier) minifyGrammar() {
 				comment := parse.TrimWhitespace(parse.ReplaceMultipleWhitespace(data[3 : len(data)-2]))
 				c.w.Write(comment)
 				c.w.Write(data[len(data)-2:])
-			} else if 5 < len(data) && (data[2] == '#' || data[2] == '@') {
-				c.w.Write(data) // sourceMappingURL
 			}
 		default:
 			c.w.Write(data)
@@ -381,7 +383,7 @@ func (c *cssMinifier) minifyDeclaration(property []byte, components []css.Token)
 
 	// Strip !important from the component list, this will be added later separately
 	important := false
-	if len(components) > 2 && components[len(components)-2].TokenType == css.DelimToken && components[len(components)-2].Data[0] == '!' && ToHash(components[len(components)-1].Data) == Important {
+	if 2 < len(components) && components[len(components)-2].TokenType == css.DelimToken && components[len(components)-2].Data[0] == '!' && ToHash(components[len(components)-1].Data) == Important {
 		components = components[:len(components)-2]
 		important = true
 	}
@@ -411,6 +413,9 @@ func (c *cssMinifier) minifyDeclaration(property []byte, components []css.Token)
 			c.w.Write(component.Data)
 		}
 		if important {
+			if c.o.KeepCSS2 {
+				c.w.Write(spaceBytes)
+			}
 			c.w.Write(importantBytes)
 		}
 		return
@@ -454,6 +459,9 @@ func (c *cssMinifier) writeDeclaration(values []Token, important bool) {
 	}
 
 	if important {
+		if c.o.KeepCSS2 {
+			c.w.Write(spaceBytes)
+		}
 		c.w.Write(importantBytes)
 	}
 }
