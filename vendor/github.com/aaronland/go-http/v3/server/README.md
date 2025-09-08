@@ -1,12 +1,8 @@
-# go-http-server
+# go-http/v3/server
 
 Go package to provide interfaces and implementation for HTTP servers.
 
 It is mostly a syntactic wrapper around existing HTTP server implementation with a common interface configured using a URI-based syntax.
-
-## Documentation
-
-[![Go Reference](https://pkg.go.dev/badge/github.com/aaronland/go-http-server.svg)](https://pkg.go.dev/github.com/aaronland/go-http-server)
 
 ## Example
 
@@ -23,7 +19,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/aaronland/go-http-server/v2"
+	"github.com/aaronland/go-http/v3/server"
 )
 
 func NewHandler() http.Handler {

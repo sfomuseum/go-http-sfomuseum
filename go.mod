@@ -4,7 +4,6 @@ go 1.24.5
 
 require (
 	github.com/aaronland/go-http-bootstrap v0.5.0
-	github.com/aaronland/go-http-server/v2 v2.0.1
 	github.com/aaronland/go-http/v3 v3.0.0
 	github.com/sfomuseum/go-flags v0.11.0
 	github.com/sfomuseum/go-template v1.10.1

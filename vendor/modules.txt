@@ -5,9 +5,6 @@ github.com/aaronland/go-http-bootstrap/static
 # github.com/aaronland/go-http-rewrite v1.1.2
 ## explicit; go 1.23.0
 github.com/aaronland/go-http-rewrite
-# github.com/aaronland/go-http-server/v2 v2.0.1
-## explicit; go 1.23.3
-github.com/aaronland/go-http-server/v2
 # github.com/aaronland/go-http-static v0.0.5
 ## explicit; go 1.23.0
 github.com/aaronland/go-http-static
@@ -15,6 +12,7 @@ github.com/aaronland/go-http-static
 ## explicit; go 1.24.5
 github.com/aaronland/go-http/v3/rewrite
 github.com/aaronland/go-http/v3/rollup
+github.com/aaronland/go-http/v3/server
 github.com/aaronland/go-http/v3/static
 # github.com/aaronland/go-roster v1.0.0
 ## explicit; go 1.16

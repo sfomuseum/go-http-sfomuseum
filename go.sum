@@ -2,8 +2,6 @@ github.com/aaronland/go-http-bootstrap v0.5.0 h1:+GOVYhJyiPo2gvBe36a0HLckRWZyzRk
 github.com/aaronland/go-http-bootstrap v0.5.0/go.mod h1:/fhvNRtvbn+b7aPapf0McoH05Oxzw6L68OolElAK9T0=
 github.com/aaronland/go-http-rewrite v1.1.2 h1:OODm8DMCXf37Vv6enmBJk/uDYGl/iu/rzN+oCahPrz0=
 github.com/aaronland/go-http-rewrite v1.1.2/go.mod h1:SPmi9kmIkA8Qdd0OH8FjWtBGyLJ56FiowEfnIoRmeq8=
-github.com/aaronland/go-http-server/v2 v2.0.1 h1:NyC0Xyli+PTzai8YGcfUvK2SQarObjGfgj0A7OWQCaY=
-github.com/aaronland/go-http-server/v2 v2.0.1/go.mod h1:xIqgVmPUBUQv8yFMDaYJ8x+fYmxNGKzBmRsuppdR5D0=
 github.com/aaronland/go-http-static v0.0.5 h1:9Q7FHZIKJrSXDxNVgfLhgfPhNMzG4FLaMg/FS/1qhrQ=
 github.com/aaronland/go-http-static v0.0.5/go.mod h1:cBhgLCYJXKpx7GfMNkNTVOR6R4xhqkiPAdU1YxYZTsI=
 github.com/aaronland/go-http/v3 v3.0.0 h1:qHvdbtt1WI+OkMmmoSUpAte0sTFe/VrHJZtPPnYNYYM=
