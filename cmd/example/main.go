@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/aaronland/go-http-server/v2"
+	"github.com/aaronland/go-http/v3/server"
 	"github.com/sfomuseum/go-flags/flagset"
 	"github.com/sfomuseum/go-http-sfomuseum/v3"
 	"github.com/sfomuseum/go-http-sfomuseum/v3/templates/html"

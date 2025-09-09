@@ -1,6 +1,6 @@
-# go-http-bootstrap
+# go-http/v3/bootstrap
 
-`go-http-bootstrap` is an HTTP middleware package for including Bootstrap (v5.3.3) assets in web applications.
+`go-http/v3/bootstrap` is an HTTP middleware package for including Bootstrap (v5.3.3) assets in web applications.
 
 ## Documentation
 
@@ -19,9 +19,10 @@ This package doesn't specify any code or methods for how Bootstrap.js is used. I
 package main
 
 import (
-	"github.com/aaronland/go-http-bootstrap"
 	"log"
 	"net/http"
+
+	"github.com/aaronland/go-http/v3/bootstrap"
 )
 
 func Handler() http.Handler {
