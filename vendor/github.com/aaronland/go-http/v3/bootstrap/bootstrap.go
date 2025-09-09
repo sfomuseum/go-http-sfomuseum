@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/aaronland/go-http-bootstrap/static"
-	aa_static "github.com/aaronland/go-http-static"
-	"github.com/sfomuseum/go-http-rollup"
+	"github.com/aaronland/go-http/v3/bootstrap/static"
+	aa_static "github.com/aaronland/go-http/v3/static"
+	"github.com/aaronland/go-http/v3/rollup"
 )
 
 // BootstrapOptions provides a list of JavaScript and CSS link to include with HTML output.

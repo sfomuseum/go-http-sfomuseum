@@ -1,15 +1,7 @@
-# github.com/aaronland/go-http-bootstrap v0.5.0
-## explicit; go 1.22.4
-github.com/aaronland/go-http-bootstrap
-github.com/aaronland/go-http-bootstrap/static
-# github.com/aaronland/go-http-rewrite v1.1.2
-## explicit; go 1.23.0
-github.com/aaronland/go-http-rewrite
-# github.com/aaronland/go-http-static v0.0.5
-## explicit; go 1.23.0
-github.com/aaronland/go-http-static
-# github.com/aaronland/go-http/v3 v3.0.0
-## explicit; go 1.24.5
+# github.com/aaronland/go-http/v3 v3.2.0
+## explicit; go 1.25.0
+github.com/aaronland/go-http/v3/bootstrap
+github.com/aaronland/go-http/v3/bootstrap/static
 github.com/aaronland/go-http/v3/rewrite
 github.com/aaronland/go-http/v3/rollup
 github.com/aaronland/go-http/v3/server
@@ -30,9 +22,6 @@ github.com/aws/aws-lambda-go/lambdacontext
 # github.com/sfomuseum/go-flags v0.11.0
 ## explicit; go 1.22
 github.com/sfomuseum/go-flags/flagset
-# github.com/sfomuseum/go-http-rollup v0.0.3
-## explicit; go 1.22.4
-github.com/sfomuseum/go-http-rollup
 # github.com/sfomuseum/go-template v1.10.1
 ## explicit; go 1.22
 github.com/sfomuseum/go-template/css
@@ -43,12 +32,12 @@ github.com/sfomuseum/go-template/html
 github.com/skip2/go-qrcode
 github.com/skip2/go-qrcode/bitset
 github.com/skip2/go-qrcode/reedsolomon
-# github.com/tdewolff/minify/v2 v2.23.11
+# github.com/tdewolff/minify/v2 v2.24.2
 ## explicit; go 1.17
 github.com/tdewolff/minify/v2
 github.com/tdewolff/minify/v2/css
 github.com/tdewolff/minify/v2/js
-# github.com/tdewolff/parse/v2 v2.8.2-0.20250806174018-50048bb39781
+# github.com/tdewolff/parse/v2 v2.8.3
 ## explicit; go 1.11
 github.com/tdewolff/parse/v2
 github.com/tdewolff/parse/v2/buffer
