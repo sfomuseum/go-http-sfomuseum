@@ -3,8 +3,8 @@ module github.com/sfomuseum/go-http-sfomuseum/v3
 go 1.25.0
 
 require (
-	github.com/aaronland/go-http/v3 v3.2.0
-	github.com/sfomuseum/go-flags v0.11.0
+	github.com/aaronland/go-http/v4 v4.0.0
+	github.com/sfomuseum/go-flags v0.12.1
 	github.com/sfomuseum/go-template v1.10.1
 )
 

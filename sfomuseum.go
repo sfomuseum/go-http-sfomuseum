@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aaronland/go-http/v3/bootstrap"
-	aa_static "github.com/aaronland/go-http/v3/static"
-	"github.com/aaronland/go-http/v3/rollup"
+	"github.com/aaronland/go-http/v4/bootstrap"
+	aa_static "github.com/aaronland/go-http/v4/static"
+	"github.com/aaronland/go-http/v4/rollup"
 	"github.com/sfomuseum/go-http-sfomuseum/v3/static"
 )
 

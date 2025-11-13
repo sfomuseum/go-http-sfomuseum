@@ -1,11 +1,11 @@
-# github.com/aaronland/go-http/v3 v3.2.0
+# github.com/aaronland/go-http/v4 v4.0.0
 ## explicit; go 1.25.0
-github.com/aaronland/go-http/v3/bootstrap
-github.com/aaronland/go-http/v3/bootstrap/static
-github.com/aaronland/go-http/v3/rewrite
-github.com/aaronland/go-http/v3/rollup
-github.com/aaronland/go-http/v3/server
-github.com/aaronland/go-http/v3/static
+github.com/aaronland/go-http/v4/bootstrap
+github.com/aaronland/go-http/v4/bootstrap/static
+github.com/aaronland/go-http/v4/rewrite
+github.com/aaronland/go-http/v4/rollup
+github.com/aaronland/go-http/v4/server
+github.com/aaronland/go-http/v4/static
 # github.com/aaronland/go-roster v1.0.0
 ## explicit; go 1.16
 github.com/aaronland/go-roster
@@ -19,7 +19,7 @@ github.com/aws/aws-lambda-go/lambda
 github.com/aws/aws-lambda-go/lambda/handlertrace
 github.com/aws/aws-lambda-go/lambda/messages
 github.com/aws/aws-lambda-go/lambdacontext
-# github.com/sfomuseum/go-flags v0.11.0
+# github.com/sfomuseum/go-flags v0.12.1
 ## explicit; go 1.22
 github.com/sfomuseum/go-flags/flagset
 # github.com/sfomuseum/go-template v1.10.1
