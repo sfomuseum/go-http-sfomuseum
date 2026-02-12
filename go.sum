@@ -12,8 +12,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/sfomuseum/go-flags v0.12.1 h1:xvg3iEz510JPr9ItPxOOF2C12JnlplodT1V/1Ty7Pg8=
 github.com/sfomuseum/go-flags v0.12.1/go.mod h1:cUTByyudaM9d+iHwxsEpyYHemWVOGL/bqTRPIvydiC8=
-github.com/sfomuseum/go-template v1.10.1 h1:VXStcvhuKjnwrHn+c2IKaBHK5OvR5X4NonPpm7r7efY=
-github.com/sfomuseum/go-template v1.10.1/go.mod h1:gRdghrBjP7d+xUjMI4hlBt/lue/YPzuzwu8Zqo0aGHk=
+github.com/sfomuseum/go-template v1.11.0 h1:7LbNJ1z/oIVu8+PbdJNfDG0nmrWLnAoZJ4Wyz+CI0EU=
+github.com/sfomuseum/go-template v1.11.0/go.mod h1:+juqDZk5K0d5+sY1Jdiq54GW+G6FBGtOdqmAxZ2v/M4=
 github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e h1:MRM5ITcdelLK2j1vwZ3Je0FKVCfqOLp5zO6trqMLYs0=
 github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e/go.mod h1:XV66xRDqSt+GTGFMVlhk3ULuV0y9ZmzeVGR4mloJI3M=
 github.com/stretchr/testify v1.7.2 h1:4jaiDzPyXQvSd7D0EjG45355tLlV3VOECpq10pLC+8s=

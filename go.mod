@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/aaronland/go-http/v4 v4.0.0
 	github.com/sfomuseum/go-flags v0.12.1
-	github.com/sfomuseum/go-template v1.10.1
+	github.com/sfomuseum/go-template v1.11.0
 )
 
 require (
