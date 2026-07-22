@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"math"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -59,9 +60,8 @@ type cssMinifier struct {
 
 // Minifier is a CSS minifier.
 type Minifier struct {
-	KeepCSS2     bool // DEPRECATED, use Version = 2
-	Precision    int  // number of significant digits
-	newPrecision int  // precision for new numbers
+	Precision    int // number of significant digits
+	newPrecision int // precision for new numbers
 	Inline       bool
 	Version      int
 }
@@ -148,11 +148,7 @@ func (o *Minifier) Minify(m *minify.M, w io.Writer, r io.Reader, params map[stri
 		o.Inline = params != nil && params["inline"] == "1"
 	}
 	if o.Version <= 0 {
-		if o.KeepCSS2 {
-			o.Version = 2
-		} else {
-			o.Version = 3
-		}
+		o.Version = 3
 	}
 
 	z := parse.NewInput(r)
@@ -179,6 +175,7 @@ func (c *cssMinifier) minifyGrammar() {
 	semicolonQueued := false
 	for {
 		gt, _, data := c.p.Next()
+	Next:
 		switch gt {
 		case css.ErrorGrammar:
 			if c.p.HasParseError() {
@@ -241,17 +238,29 @@ func (c *cssMinifier) minifyGrammar() {
 			}
 			semicolonQueued = true
 		case css.BeginAtRuleGrammar:
-			c.w.Write(data)
-			for _, val := range c.p.Values() {
-				c.w.Write(val.Data)
+			rule := slices.Clone(data)
+			values := slices.Clone(c.p.Values())
+			gt, _, data = c.p.Next()
+			if gt == css.EndAtRuleGrammar {
+				gt, _, data = c.p.Next()
+			} else {
+				c.w.Write(rule)
+				for _, val := range values {
+					c.w.Write(val.Data)
+				}
+				c.w.Write(leftBracketBytes)
 			}
-			c.w.Write(leftBracketBytes)
-		case css.QualifiedRuleGrammar:
-			c.minifySelectors(data, c.p.Values())
-			c.w.Write(commaBytes)
+			goto Next
 		case css.BeginRulesetGrammar:
-			c.minifySelectors(data, c.p.Values())
-			c.w.Write(leftBracketBytes)
+			selectors := slices.Clone(c.p.Values())
+			gt, _, data = c.p.Next()
+			if gt == css.EndRulesetGrammar {
+				gt, _, data = c.p.Next()
+			} else {
+				c.minifySelectors(selectors)
+				c.w.Write(leftBracketBytes)
+			}
+			goto Next
 		case css.DeclarationGrammar:
 			c.minifyDeclaration(data, c.p.Values())
 			semicolonQueued = true
@@ -277,10 +286,10 @@ func (c *cssMinifier) minifyGrammar() {
 	}
 }
 
-func (c *cssMinifier) minifySelectors(property []byte, values []css.Token) {
+func (c *cssMinifier) minifySelectors(values []css.Token) {
 	inAttr := false
 	isClass := false
-	for _, val := range c.p.Values() {
+	for _, val := range values {
 		if !inAttr {
 			if val.TokenType == css.IdentToken {
 				if !isClass {
@@ -1140,7 +1149,7 @@ func (c *cssMinifier) minifyProperty(prop Hash, values []Token) []Token {
 		values[0] = minifyColor(values[0])
 	case Background_Color:
 		values[0] = minifyColor(values[0])
-		if c.o.Version == 0 {
+		if c.o.Version >= 3 {
 			if values[0].Ident == Transparent {
 				values[0].Data = initialBytes
 				values[0].Ident = Initial
@@ -1560,7 +1569,7 @@ func (c *cssMinifier) minifyDimension(value Token) (Token, []byte) {
 	//		}
 	//		for i := range dimensions {
 	//			if dimensions[i] != h { //&& (d < 1.0) == (multipliers[i] > 1.0) {
-	//				b, _ := strconvParse.AppendFloat([]byte{}, d*multipliers[i], -1)
+	//				b := strconvParse.AppendFloat([]byte{}, d*multipliers[i], -1)
 	//				if c.o.Version<=2 {
 	//					b = minify.Decimal(b, c.o.newPrecision) // don't use exponents
 	//				} else {
